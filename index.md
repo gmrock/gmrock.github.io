@@ -1,4 +1,4 @@
-### Random articles on all things Software
+### Random articles on all things Electronics & Software Engineering
 -----
 
 _December 19th 2022:_<br/>
