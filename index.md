@@ -1,5 +1,7 @@
-### Random articles on all things Electronics & Software Engineering
------
+### Random articles on all things Electronics & Software Engineering 
+---
+#### [Home](https://gmrock.github.io/website/)
+
 
 _December 19th 2022:_<br/>
 **Home Automation:**<br/>
