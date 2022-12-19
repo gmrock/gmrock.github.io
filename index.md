@@ -1,4 +1,3 @@
-# Ganesh
 ### Random articles on all things Software Engineering
 -----
 
