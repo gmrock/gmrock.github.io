@@ -11,7 +11,7 @@ _December 19th 2022:_<br/>
 - [Ademco contact switch 7939WG](https://www.amazon.com/7939WG-WH-Ademco-Surface-Mount-Contacts/dp/B001DEUUZC/){:target="_blank"}
 - [Honeywell glass break sensor](https://www.amazon.com/Honeywell-Ademco-ASC-SS1-Shock-Sensor/dp/B000GUV1W0){:target="_blank"}
 - [TP Link HS100 Wifi switch](https://www.amazon.com/TP-Link-KIT-HS100-Wall-Light-Electronic-Component-switches/dp/B01KBFWW0O){:target="_blank"}
-- [Honeywell wave 2 sire](https://www.amazon.com/Honeywell-WAVE-2-Two-Tone-Siren/dp/B0006BCCAE/){:target="_blank"}
+- [Honeywell wave 2 siren](https://www.amazon.com/Honeywell-WAVE-2-Two-Tone-Siren/dp/B0006BCCAE/){:target="_blank"}
 - [Garage remote control](https://www.ebay.com/p/20024769511){:target="_blank"}
 - [GPIO jumper wires](https://www.amazon.com/GenBasic-Piece-Female-Jumper-Wires/dp/B077N58HFK/){:target="_blank"}
 - [Wire spool](https://www.adafruit.com/product/4734){:target="_blank"}
@@ -31,12 +31,10 @@ _December 19th 2022:_<br/>
 
 `MasterRaspberryPi`: The main web application(war) is running on a tomcat server on this pi. This is the central system(brain) to which all the peripheral devices such as sensors, remotes etc send status information (via other locally located raspberry pis). The web application makes the decision based on the input it receives from the devices. For example - if the main door is opened and the current time is 23:00 and the home is armed, then the siren needs start along with sending notifications to users. This also provides a simple UI which lists all controls for the output devices (lights, sirens, garage remote). There are configuration pages available that allows end user to arm/dis-arm home, select time ranges, wifi control etc. There are some advanced configurations that allows to set the IP address of other raspberry pis.
 
-`RpiS2GlassDoorSensor`:
+`RpiS2GlassDoorSensor`: This is a running a java application (jar) which monitors the state of the reed switches for couple of doors and knob. Whenever there is any state change the application will relay the state to a cloud hosted rabbitmq (cloudamqp). The decision and the action what needs to be done on the state change is handled by _`MasterRaspberryPi`_. I'm using this library for interacting with the GPIO pins on the raspberry pi - [Pi4j](https://pi4j.com/){:target="_blank"} 
 
-`RpiS3ShutterGarageSiren`:
+`RpiS3ShutterGarageSiren` & `RpiS4HallSirenGarageRemote`: Similar to the _`RpiS2GlassDoorSensor`_ this is running a java application (jar) that monitors the reed switch along with controlling the siren. The action what triggers the siren and other related activities is decided by the _`MasterRaspberryPi`_. The communication between _`MasterRaspberryPi`_ and reed switches, siren is done via rabbitmq (cloudamqp). _`RpiS4HallSirenGarageRemote`_ also has Garage remote control wired up which is again controller via the rabbitmq.
 
-`RpiS4HallSirenGarageRemote`:
+`cloudamqp`: The communication between the _`MasterRaspberryPi`_ and other peripheral applications communicate with each other over rabbitMq. I'm using the cloud hosted solution - cloudamqp.
 
-
-
-``:
+`telegram`: I have developed a telegram bot that is running on _`MasterRaspberryPi`_. This bot is used to get commands from end user over telegram app and based on the command control the associated applications. The notifications, are also sent to end users as telegram messages. For example - whenever any door is opened/closed, siren started etc.
