@@ -4,17 +4,39 @@
 
 
 _December 19th 2022:_<br/>
-**Home Automation:**<br/>Back in late 2016, I started working on a hobby project with the goal to monitor and automate things at home. During this time, I started with a [Raspberry Pi](https://en.wikipedia.org/wiki/Raspberry_Pi) and a [reed switch](https://en.wikipedia.org/wiki/Reed_switch). The first version was to monitor the main entrance door. Over the years, I have expanded the project to include multiple doors, garage, lights, security system. Some of the components which are being used in the project are:
+**Home Automation:**<br/>Back in late 2016, I started working on a hobby project with the goal to monitor and automate things at home. I started with a [Raspberry Pi](https://en.wikipedia.org/wiki/Raspberry_Pi) and a [reed switch](https://en.wikipedia.org/wiki/Reed_switch). Over the years, I have expanded the project to include multiple doors, garage remote control, lights, security system, notification, system health monitoring. Let me start by listing the hardware and software components used in my project and provide architecture and design overview of the entire system.
 
 #### Hardware:
+- [Raspberry pi](https://www.adafruit.com/product/4295){:target="_blank"}
 - [Ademco contact switch 7939WG](https://www.amazon.com/7939WG-WH-Ademco-Surface-Mount-Contacts/dp/B001DEUUZC/){:target="_blank"}
-- [TP Link HS100 Wifi switch](https://www.amazon.com/TP-Link-KIT-HS100-Wall-Light-Electronic-Component-switches/dp/B01KBFWW0O)
-- [Honeywell wave 2 sire](https://www.amazon.com/Honeywell-WAVE-2-Two-Tone-Siren/dp/B0006BCCAE/)
+- [Honeywell glass break sensor](https://www.amazon.com/Honeywell-Ademco-ASC-SS1-Shock-Sensor/dp/B000GUV1W0){:target="_blank"}
+- [TP Link HS100 Wifi switch](https://www.amazon.com/TP-Link-KIT-HS100-Wall-Light-Electronic-Component-switches/dp/B01KBFWW0O){:target="_blank"}
+- [Honeywell wave 2 sire](https://www.amazon.com/Honeywell-WAVE-2-Two-Tone-Siren/dp/B0006BCCAE/){:target="_blank"}
+- [Garage remote control](https://www.ebay.com/p/20024769511){:target="_blank"}
+- [GPIO jumper wires](https://www.amazon.com/GenBasic-Piece-Female-Jumper-Wires/dp/B077N58HFK/){:target="_blank"}
+- [Wire spool](https://www.adafruit.com/product/4734){:target="_blank"}
 
 #### Software:
-- [Raspberry pi OS](https://www.raspberrypi.com/software/)
 - [Pi4j](https://pi4j.com/){:target="_blank"}
-- [Java](https://www.oracle.com/java/technologies/javase/jdk11-archive-downloads.html)
-- [Cloud AMQP](https://www.cloudamqp.com/)
+- [Java](https://www.oracle.com/java/technologies/javase/jdk11-archive-downloads.html){:target="_blank"}
+- [Cloud AMQP](https://www.cloudamqp.com/){:target="_blank"} Or [RabbitMQ](https://www.rabbitmq.com/#getstarted){:target="_blank"}
+- [Tomcat](https://tomcat.apache.org/){:target="_blank"}
+- [Grafana](https://grafana.com/grafana/download){:target="_blank"}
+- [Prometheus](https://prometheus.io/){:target="_blank"}
+- [Prometheus JMX exporter](https://github.com/prometheus/jmx_exporter){:target="_blank"}
+- [Telegram Bot Library](https://github.com/rubenlagus/TelegramBots){:target="_blank"}
 
 #### Architecture:
+
+
+`MasterRaspberryPi`: The main web application(war) is running on a tomcat server on this pi. This is the central system(brain) to which all the peripheral devices such as sensors, remotes etc send status information (via other locally located raspberry pis). The web application makes the decision based on the input it receives from the devices. For example - if the main door is opened and the current time is 23:00 and the home is armed, then the siren needs start along with sending notifications to users. This also provides a simple UI which lists all controls for the output devices (lights, sirens, garage remote). There are configuration pages available that allows end user to arm/dis-arm home, select time ranges, wifi control etc. There are some advanced configurations that allows to set the IP address of other raspberry pis.
+
+`RpiS2GlassDoorSensor`:
+
+`RpiS3ShutterGarageSiren`:
+
+`RpiS4HallSirenGarageRemote`:
+
+
+
+``:
