@@ -13,7 +13,7 @@ _December 19th 2022:_<br/>
 
 #### Software:
 - [Raspberry pi OS](https://www.raspberrypi.com/software/)
-- [Pi4j](https://pi4j.com/){target="_blank"}
+- [Pi4j](https://pi4j.com/){:target="_blank"}
 - [Java](https://www.oracle.com/java/technologies/javase/jdk11-archive-downloads.html)
 - [Cloud AMQP](https://www.cloudamqp.com/)
 
