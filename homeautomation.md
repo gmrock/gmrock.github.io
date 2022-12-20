@@ -12,9 +12,9 @@ _December 19th 2022:_<br/>
 - [Honeywell wave 2 sire](https://www.amazon.com/Honeywell-WAVE-2-Two-Tone-Siren/dp/B0006BCCAE/)
 
 #### Software:
-- [Raspberry pi OS](https://www.raspberrypi.com/software/){target="_blank"}
-- [Pi4j](https://pi4j.com/){:target="_blank"}  (this is the java library used for interacting with the [GPIOs](https://pinout.xyz/#))
-- [Java](https://www.oracle.com/java/technologies/javase/jdk11-archive-downloads.html){:target="_blank"}
-- [Cloud AMQP](https://www.cloudamqp.com/){:target="_blank"}
+- [Raspberry pi OS](https://www.raspberrypi.com/software/)
+- [Pi4j](https://pi4j.com/)
+- [Java](https://www.oracle.com/java/technologies/javase/jdk11-archive-downloads.html)
+- [Cloud AMQP](https://www.cloudamqp.com/)
 
 #### Architecture:
