@@ -1,4 +1,7 @@
 title: Ganesh
+author:
+  name: Ganesh Magal
+  email: ganesh@domain.com
 description: Random things on everything electronics and software engineering
 theme: minima
 markdown: kramdown
