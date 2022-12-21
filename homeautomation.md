@@ -58,8 +58,12 @@ Below are the wiring drawings to connect raspberry pi GPIO to siren, reed switch
 <br/>Dashboard showing various widgets for monitoring (including otel traces from _`MasterRaspberryPi`_)
 ![Dashboard](media/grafana.png)
 
-<br/>Heap usage and temperature monitoring
+Heap usage and temperature monitoring
 ![Heap usage, temperature](media/grafana_1.png)
 
 `Telegram Notification`:
-![Telegram app notification](media/5BCCB732-34F5-4BF8-8261-B5CBF5AC5724.jpeg)
+<br/> Telegram notifications about door sensors
+![Telegram app notification](media/A8B57369-8EE1-43BF-BEE6-ED2A2B7BBE31.jpeg)
+
+Telegram message to send command signals
+![Telegram app status and control](media/5BCCB732-34F5-4BF8-8261-B5CBF5AC5724.jpeg)
