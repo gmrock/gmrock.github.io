@@ -2,8 +2,9 @@
 ---
 #### [Home](https://gmrock.github.io/website/)
 
-
+---
 layout: home
+---
 
 
 
