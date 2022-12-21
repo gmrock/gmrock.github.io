@@ -25,7 +25,7 @@ Back in late 2016, I started working on a hobby project with the goal to monitor
 - [otel](https://opentelemetry.io/docs/instrumentation/java/automatic/){:target="_blank"} with [Grafana Tempo](https://grafana.com/docs/tempo/latest/){:target="_blank"}--> experimental
 
 #### ARCHITECTURE:
-![Architecture](../media/HomeAutomation_Architecture_Diagram.png)
+![Architecture](https://github.com/gmrock/website/blob/main/media/HomeAutomation_Architecture_Diagram.png)
 
 `MasterRaspberryPi`: The main web application(war) is running on a tomcat server on this pi. This is the central system(brain) to which all the peripheral devices such as sensors, remotes etc send status information (via other locally located raspberry pis). The web application makes the decision based on the input it receives from the devices. For example - if the main door is opened and the current time is 23:00 and the home is armed, then the siren needs start along with sending notifications to users. This also provides a simple UI which lists all controls for the output devices (lights, sirens, garage remote). There are configuration pages available that allows end user to arm/dis-arm home, select time ranges, wifi control etc. There are some advanced configurations that allows to set the IP address of other raspberry pis.
 
@@ -45,7 +45,7 @@ Back in late 2016, I started working on a hobby project with the goal to monitor
 
 #### WIRING DRAWING:
 Below are the wiring drawings to connect raspberry pi GPIO to siren, reed switch and garage remote wiring
-![Wiring drawing](../media/Wiring_Drawings.png)
+![Wiring drawing](https://github.com/gmrock/website/blob/main/media/Wiring_Drawings.png)
 
 #### SCREEN CAPTURES:
 
@@ -53,14 +53,14 @@ Below are the wiring drawings to connect raspberry pi GPIO to siren, reed switch
 
 `Grafana`:
 <br/>Dashboard showing various widgets for monitoring (including otel traces from _`MasterRaspberryPi`_)
-![Dashboard](../media/grafana.png)
+![Dashboard](https://github.com/gmrock/website/blob/main/media/grafana.png)
 
 Heap usage and temperature monitoring
-![Heap usage, temperature](../media/grafana_1.png)
+![Heap usage, temperature](https://github.com/gmrock/website/blob/main/media/grafana_1.png)
 
 `Telegram Notification`:
 <br/> Telegram notifications about door sensors
-![Telegram app notification](../media/A8B57369-8EE1-43BF-BEE6-ED2A2B7BBE31.jpeg)
+![Telegram app notification](https://github.com/gmrock/website/blob/main/media/A8B57369-8EE1-43BF-BEE6-ED2A2B7BBE31.jpeg)
 
 Telegram message to send command signals
-![Telegram app status and control](../media/5BCCB732-34F5-4BF8-8261-B5CBF5AC5724.jpeg)
+![Telegram app status and control](https://github.com/gmrock/website/blob/main/media/5BCCB732-34F5-4BF8-8261-B5CBF5AC5724.jpeg)
