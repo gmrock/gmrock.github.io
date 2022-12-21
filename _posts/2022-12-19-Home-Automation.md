@@ -60,7 +60,7 @@ Heap usage and temperature monitoring
 
 `Telegram Notification`:
 <br/> Telegram notifications about door sensors
-![Telegram app notification](website/blob/main/media/A8B57369-8EE1-43BF-BEE6-ED2A2B7BBE31.jpeg)
+![Telegram app notification](website/media/A8B57369-8EE1-43BF-BEE6-ED2A2B7BBE31.jpeg)
 
 Telegram message to send command signals
-![Telegram app status and control](website/blob/main/media/5BCCB732-34F5-4BF8-8261-B5CBF5AC5724.jpeg)
+![Telegram app status and control](website/media/5BCCB732-34F5-4BF8-8261-B5CBF5AC5724.jpeg)
