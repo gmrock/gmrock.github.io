@@ -1,7 +1,5 @@
----
-layout: post
----
-Back in late 2016, I started working on a hobby project with the goal to monitor and automate things at home. I started with a [Raspberry Pi](https://en.wikipedia.org/wiki/Raspberry_Pi) and a [reed switch](https://en.wikipedia.org/wiki/Reed_switch). 
+Back in late 2016, I started working on a hobby project with the goal to monitor and automate things at home. I started with a [Raspberry Pi](https://en.wikipedia.org/wiki/Raspberry_Pi) and a [reed switch](https://en.wikipedia.org/wiki/Reed_switch).
+
 Over the years, I have expanded the project to include multiple doors, garage remote control, lights, security system, notification, system health monitoring. Let me start by listing the hardware and software components used in my project and provide architecture and design overview of the entire system.
 
 #### HARDWARE:
@@ -13,7 +11,9 @@ Over the years, I have expanded the project to include multiple doors, garage re
 - [Garage remote control](https://www.ebay.com/p/20024769511){:target="_blank"}
 - [GPIO jumper wires](https://www.amazon.com/GenBasic-Piece-Female-Jumper-Wires/dp/B077N58HFK/){:target="_blank"}
 - [Wire spool](https://www.adafruit.com/product/4734){:target="_blank"}
+
 ---
+
 #### SOFTWARE:
 - [Pi4j](https://pi4j.com/){:target="_blank"}
 - [Java](https://www.oracle.com/java/technologies/javase/jdk11-archive-downloads.html){:target="_blank"}
@@ -24,7 +24,9 @@ Over the years, I have expanded the project to include multiple doors, garage re
 - [Prometheus JMX exporter](https://github.com/prometheus/jmx_exporter){:target="_blank"}
 - [Telegram Bot Library](https://github.com/rubenlagus/TelegramBots){:target="_blank"}
 - [otel](https://opentelemetry.io/docs/instrumentation/java/automatic/){:target="_blank"} with [Grafana Tempo](https://grafana.com/docs/tempo/latest/){:target="_blank"} :construction:
+
 ---
+
 #### ARCHITECTURE:
 ![Architecture](https://raw.githubusercontent.com/gmrock/website/main/media/HomeAutomation_Architecture_Diagram.png)
 
@@ -53,11 +55,13 @@ I have configured a dashboard which gives an overview on the health of the entir
 I'm running the [otel collector](https://opentelemetry.io/docs/collector/getting-started/){:target="_blank"} on the _`MasterRaspberryPi`_. The tomcat web application is instrumented with [otel javaagent](https://opentelemetry.io/docs/instrumentation/java/automatic/){:target="_blank"} and the traces are collected by the [otel collector](https://opentelemetry.io/docs/collector/getting-started/){:target="_blank"} and publishes the metrics to Grafana Tempo.
 
 ---
+
 #### WIRING DRAWING:
 Below are the wiring drawings to connect raspberry pi GPIO to siren, reed switch and garage remote wiring
 ![Wiring drawing](https://raw.githubusercontent.com/gmrock/website/main/media/Wiring_Drawings.png)
 
 ---
+
 #### SCREEN CAPTURES:
 
 ##### `Webapplication UI`:
@@ -69,13 +73,13 @@ Login page of the web application
 ![Dashboard](https://raw.githubusercontent.com/gmrock/website/main/media/config.png)
 <br/>Internal configuration page
 ![Dashboard](https://raw.githubusercontent.com/gmrock/website/main/media/internal_config.png)
-
+<br/>
 ##### `Grafana`:
 Dashboard showing various widgets for monitoring (including otel traces from _`MasterRaspberryPi`_)
 ![Dashboard](https://raw.githubusercontent.com/gmrock/website/main/media/grafana.png)
 Heap usage and temperature monitoring
 ![Heap usage, temperature](https://raw.githubusercontent.com/gmrock/website/main/media/grafana_1.png)
-
+<br/>
 ##### `Telegram Notification`:
 Telegram notifications about door sensors
 <br/> <img src="https://raw.githubusercontent.com/gmrock/website/main/media/A8B57369-8EE1-43BF-BEE6-ED2A2B7BBE31.jpeg" alt="Telegram app notification" style="width:200px;"/>
