@@ -23,7 +23,7 @@ Over the years, I have expanded the project to include multiple doors, garage re
 - [Prometheus](https://prometheus.io/){:target="_blank"}
 - [Prometheus JMX exporter](https://github.com/prometheus/jmx_exporter){:target="_blank"}
 - [Telegram Bot Library](https://github.com/rubenlagus/TelegramBots){:target="_blank"}
-- :building_construction: [otel](https://opentelemetry.io/docs/instrumentation/java/automatic/){:target="_blank"} with [Grafana Tempo](https://grafana.com/docs/tempo/latest/){:target="_blank"}
+- 🚧 [otel](https://opentelemetry.io/docs/instrumentation/java/automatic/){:target="_blank"} with [Grafana Tempo](https://grafana.com/docs/tempo/latest/){:target="_blank"} 
 
 <hr/>
 
