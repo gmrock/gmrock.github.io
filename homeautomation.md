@@ -62,3 +62,4 @@ Below are the wiring drawings to connect raspberry pi GPIO to siren, reed switch
 ![Heap usage, temperature](media/grafana_1.png)
 
 `Telegram Notification`:
+![Telegram app notification](media/5BCCB732-34F5-4BF8-8261-B5CBF5AC5724.jpeg)
