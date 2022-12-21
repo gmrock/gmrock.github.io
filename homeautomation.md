@@ -25,7 +25,7 @@ _December 19th 2022:_<br/>
 - [Prometheus](https://prometheus.io/){:target="_blank"}
 - [Prometheus JMX exporter](https://github.com/prometheus/jmx_exporter){:target="_blank"}
 - [Telegram Bot Library](https://github.com/rubenlagus/TelegramBots){:target="_blank"}
-- [otel](https://github.com/rubenlagus/TelegramBots](https://opentelemetry.io/docs/instrumentation/java/automatic/){:target="_blank"} with [Grafana Tempo](https://grafana.com/docs/tempo/latest/){:target="_blank"}--> experimental
+- [otel](https://opentelemetry.io/docs/instrumentation/java/automatic/){:target="_blank"} with [Grafana Tempo](https://grafana.com/docs/tempo/latest/){:target="_blank"}--> experimental
 
 #### ARCHITECTURE:
 ![Architecture](media/HomeAutomation_Architecture_Diagram.png)
