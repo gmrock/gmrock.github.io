@@ -25,6 +25,7 @@ _December 19th 2022:_<br/>
 - [Prometheus](https://prometheus.io/){:target="_blank"}
 - [Prometheus JMX exporter](https://github.com/prometheus/jmx_exporter){:target="_blank"}
 - [Telegram Bot Library](https://github.com/rubenlagus/TelegramBots){:target="_blank"}
+- [otel](https://github.com/rubenlagus/TelegramBots](https://opentelemetry.io/docs/instrumentation/java/automatic/){:target="_blank"} with [Grafana Tempo](https://grafana.com/docs/tempo/latest/){:target="_blank"}--> experimental
 
 #### ARCHITECTURE:
 ![Architecture](media/HomeAutomation_Architecture_Diagram.png)
@@ -35,13 +36,15 @@ _December 19th 2022:_<br/>
 
 `RpiS3ShutterGarageSiren` & `RpiS4HallSirenGarageRemote`: Similar to the _`RpiS2GlassDoorSensor`_ this is running a java application (jar) that monitors the reed switch along with controlling the siren. The action what triggers the siren and other related activities is decided by the _`MasterRaspberryPi`_. The communication between _`MasterRaspberryPi`_ and reed switches, siren is done via rabbitmq (cloudamqp). _`RpiS4HallSirenGarageRemote`_ also has Garage remote control wired up which is again controller via the rabbitmq.
 
-`cloudamqp`: The communication between the _`MasterRaspberryPi`_ and other peripheral applications communicate with each other over rabbitMq. I'm using the cloud hosted solution - cloudamqp.
+`cloudamqp`: The communication between the _`MasterRaspberryPi`_ and other peripheral applications is done over rabbitMq. I'm using the cloud hosted solution - cloudamqp.
 
 `telegram`: I have developed a telegram bot that is running on _`MasterRaspberryPi`_. This bot is used to get commands from end user over telegram app and based on the command control the associated applications. The notifications, are also sent to end users as telegram messages. For example - whenever any door is opened/closed, siren started etc.
 
 `Prometheus`: I'm running a local instance of prometheus on one of the raspberry pi. All the individual java applications(including tomcat instance) are instrumented with Prometheus JMX exporter (-javaagent) which publishes all the JMX related metrics to their respective localhost on a specific port. The prometheus is configured to scrape for JMX metrics from all the 5 raspberry pis. Prometheus is configured to publish the metrics collected to a cloud instance of Grafana (the free tier is sufficient for my purpose).
 
-`Grafana:` I have configured a dashboard which gives an overview on the health of the entire system. I'm tracking the heap usage, thread counts, temperature, errors (using [loki](https://grafana.com/docs/loki/latest/clients/promtail/){:target="_blank"}), up time for each of the applications in my system. I have also configured alerts (to be sent to my telegram app) when there is any deviation from the baseline such as - application is down, heap usage or thread count is growing etc.
+`Grafana`: I have configured a dashboard which gives an overview on the health of the entire system. I'm tracking the heap usage, thread counts, temperature, errors (using [loki](https://grafana.com/docs/loki/latest/clients/promtail/){:target="_blank"}), up time for each of the applications in my system. I have also configured alerts (to be sent to my telegram app) when there is any deviation from the baseline such as - application is down, heap usage or thread count is growing etc.
+
+`otel with Grafana Tempo`: I'm running the [otel collector](https://opentelemetry.io/docs/collector/getting-started/){:target="_blank"} on the _`MasterRaspberryPi`_. The tomcat web application is instrumented with [otel javaagent](https://opentelemetry.io/docs/instrumentation/java/automatic/){:target="_blank"} and the traces are collected by the [otel collector](https://opentelemetry.io/docs/collector/getting-started/){:target="_blank"} and publishes the metrics to Grafana Tempo. <TODO: Share the config files on how it should be configured>
 
 #### WIRING DRAWING:
 Below are the wiring drawings to connect raspberry pi GPIO to siren, reed switch and garage remote wiring
@@ -49,8 +52,13 @@ Below are the wiring drawings to connect raspberry pi GPIO to siren, reed switch
 
 #### SCREEN CAPTURES:
 
-`Grafana`:
-
 `Webapplication UI`:
+
+`Grafana`:
+<br/>Dashboard showing various widgets for monitoring (including otel traces from _`MasterRaspberryPi`_)
+![Dashboard](media/grafana.png)
+
+<br/>Heap usage and temperature monitoring
+![Heap usage, temperature](media/grafana_1.png)
 
 `Telegram Notification`:
