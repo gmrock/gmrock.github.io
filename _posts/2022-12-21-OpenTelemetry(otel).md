@@ -1,4 +1,6 @@
-Back in late 2016, I started working on a hobby project with the goal to monitor and automate things at 🏠. I started with a [Raspberry Pi](https://en.wikipedia.org/wiki/Raspberry_Pi) and a [reed switch](https://en.wikipedia.org/wiki/Reed_switch).
+Working in the [APM](https://www.gartner.com/en/information-technology/glossary/application-performance-monitoring-apm){:target="_blank"} domain has allowed me to explore the latest and greatest in the field of [APM](https://www.gartner.com/en/information-technology/glossary/application-performance-monitoring-apm){:target="_blank"} and [FSO](https://www.appdynamics.com/topics/what-is-full-stack-observability#~the-modern-technology-landscape){:target="_blank"}. Until recently all the solutions available in the market were proprietary. 
+
+
 
 Over the years, I have expanded the project to include multiple doors, garage remote control, lights, security system, notification, system health monitoring. Let me start by listing the hardware and software components used in my project and provide architecture and design overview of the entire system.
 
