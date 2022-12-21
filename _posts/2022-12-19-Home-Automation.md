@@ -1,14 +1,7 @@
 ---
 layout: post
 ---
-
-### Random articles on all things Electronics & Software Engineering 
----
-#### [Home](https://gmrock.github.io/website/)
-
-
-_December 19th 2022:_<br/>
-**Home Automation:**<br/>Back in late 2016, I started working on a hobby project with the goal to monitor and automate things at home. I started with a [Raspberry Pi](https://en.wikipedia.org/wiki/Raspberry_Pi) and a [reed switch](https://en.wikipedia.org/wiki/Reed_switch). Over the years, I have expanded the project to include multiple doors, garage remote control, lights, security system, notification, system health monitoring. Let me start by listing the hardware and software components used in my project and provide architecture and design overview of the entire system.
+Back in late 2016, I started working on a hobby project with the goal to monitor and automate things at home. I started with a [Raspberry Pi](https://en.wikipedia.org/wiki/Raspberry_Pi) and a [reed switch](https://en.wikipedia.org/wiki/Reed_switch). Over the years, I have expanded the project to include multiple doors, garage remote control, lights, security system, notification, system health monitoring. Let me start by listing the hardware and software components used in my project and provide architecture and design overview of the entire system.
 
 #### HARDWARE:
 - [Raspberry pi](https://www.adafruit.com/product/4295){:target="_blank"}
