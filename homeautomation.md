@@ -44,9 +44,10 @@ _December 19th 2022:_<br/>
 `Grafana:` I have configured a dashboard which gives an overview on the health of the entire system. I'm tracking the heap usage, thread counts, temperature, errors (using [loki](https://grafana.com/docs/loki/latest/clients/promtail/){:target="_blank"}), up time for each of the applications in my system. I have also configured alerts (to be sent to my telegram app) when there is any deviation from the baseline such as - application is down, heap usage or thread count is growing etc.
 
 #### WIRING DRAWING:
+Below are the wiring drawings to connect raspberry pi GPIO to siren, reed switch and garage remote wiring
+![Wiring drawing](media/Wiring_Drawings.png)
 
-
-#### SCREEN CAPTURES captures:
+#### SCREEN CAPTURES:
 
 `Grafana`:
 
