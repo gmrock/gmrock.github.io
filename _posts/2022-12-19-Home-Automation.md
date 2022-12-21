@@ -50,7 +50,7 @@ I'm running a local instance of prometheus on one of the raspberry pi. All the i
 I have configured a dashboard which gives an overview on the health of the entire system. I'm tracking the heap usage, thread counts, temperature, errors (using [loki](https://grafana.com/docs/loki/latest/clients/promtail/){:target="_blank"}), up time for each of the applications in my system. I have also configured alerts (to be sent to my telegram app) when there is any deviation from the baseline such as - application is down, heap usage or thread count is growing etc.
 
 ##### `otel with Grafana Tempo`:
-I'm running the [otel collector](https://opentelemetry.io/docs/collector/getting-started/){:target="_blank"} on the _`MasterRaspberryPi`_. The tomcat web application is instrumented with [otel javaagent](https://opentelemetry.io/docs/instrumentation/java/automatic/){:target="_blank"} and the traces are collected by the [otel collector](https://opentelemetry.io/docs/collector/getting-started/){:target="_blank"} and publishes the metrics to Grafana Tempo. <TODO: Share the config files on how it should be configured>
+I'm running the [otel collector](https://opentelemetry.io/docs/collector/getting-started/){:target="_blank"} on the _`MasterRaspberryPi`_. The tomcat web application is instrumented with [otel javaagent](https://opentelemetry.io/docs/instrumentation/java/automatic/){:target="_blank"} and the traces are collected by the [otel collector](https://opentelemetry.io/docs/collector/getting-started/){:target="_blank"} and publishes the metrics to Grafana Tempo.
 
 ---
 #### WIRING DRAWING:
