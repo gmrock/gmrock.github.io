@@ -12,7 +12,7 @@ Over the years, I have expanded the project to include multiple doors, garage re
 - [GPIO jumper wires](https://www.amazon.com/GenBasic-Piece-Female-Jumper-Wires/dp/B077N58HFK/){:target="_blank"}
 - [Wire spool](https://www.adafruit.com/product/4734){:target="_blank"}
 
----
+<hr/>
 
 #### SOFTWARE:
 - [Pi4j](https://pi4j.com/){:target="_blank"}
@@ -23,9 +23,9 @@ Over the years, I have expanded the project to include multiple doors, garage re
 - [Prometheus](https://prometheus.io/){:target="_blank"}
 - [Prometheus JMX exporter](https://github.com/prometheus/jmx_exporter){:target="_blank"}
 - [Telegram Bot Library](https://github.com/rubenlagus/TelegramBots){:target="_blank"}
-- [otel](https://opentelemetry.io/docs/instrumentation/java/automatic/){:target="_blank"} with [Grafana Tempo](https://grafana.com/docs/tempo/latest/){:target="_blank"} :construction:
+- :building_construction: [otel](https://opentelemetry.io/docs/instrumentation/java/automatic/){:target="_blank"} with [Grafana Tempo](https://grafana.com/docs/tempo/latest/){:target="_blank"}
 
----
+<hr/>
 
 #### ARCHITECTURE:
 ![Architecture](https://raw.githubusercontent.com/gmrock/website/main/media/HomeAutomation_Architecture_Diagram.png)
@@ -54,13 +54,13 @@ I have configured a dashboard which gives an overview on the health of the entir
 ##### `otel with Grafana Tempo`:
 I'm running the [otel collector](https://opentelemetry.io/docs/collector/getting-started/){:target="_blank"} on the _`MasterRaspberryPi`_. The tomcat web application is instrumented with [otel javaagent](https://opentelemetry.io/docs/instrumentation/java/automatic/){:target="_blank"} and the traces are collected by the [otel collector](https://opentelemetry.io/docs/collector/getting-started/){:target="_blank"} and publishes the metrics to Grafana Tempo.
 
----
+<hr/>
 
 #### WIRING DRAWING:
 Below are the wiring drawings to connect raspberry pi GPIO to siren, reed switch and garage remote wiring
 ![Wiring drawing](https://raw.githubusercontent.com/gmrock/website/main/media/Wiring_Drawings.png)
 
----
+<hr/>
 
 #### SCREEN CAPTURES:
 
