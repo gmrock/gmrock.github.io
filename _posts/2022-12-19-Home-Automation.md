@@ -53,10 +53,10 @@ Below are the wiring drawings to connect raspberry pi GPIO to siren, reed switch
 
 `Grafana`:
 <br/>Dashboard showing various widgets for monitoring (including otel traces from _`MasterRaspberryPi`_)
-![Dashboard](media/grafana.png)
+![Dashboard](https://raw.githubusercontent.com/gmrock/website/main/media/grafana.png)
 
 Heap usage and temperature monitoring
-![Heap usage, temperature](media/grafana_1.png)
+![Heap usage, temperature](https://raw.githubusercontent.com/gmrock/website/main/media/grafana_1.png)
 
 `Telegram Notification`:
 <br/> Telegram notifications about door sensors
