@@ -50,6 +50,14 @@ Below are the wiring drawings to connect raspberry pi GPIO to siren, reed switch
 #### SCREEN CAPTURES:
 
 `Webapplication UI`:
+<br/>Login page of the web application
+![Dashboard](https://raw.githubusercontent.com/gmrock/website/main/media/login.png)
+<br/>Main page
+![Dashboard](https://raw.githubusercontent.com/gmrock/website/main/media/homepage.png)
+<br/>Configuration page
+![Dashboard](https://raw.githubusercontent.com/gmrock/website/main/media/config.png)
+<br/>Internal configuration page
+![Dashboard](https://raw.githubusercontent.com/gmrock/website/main/media/internal_config.png)
 
 `Grafana`:
 <br/>Dashboard showing various widgets for monitoring (including otel traces from _`MasterRaspberryPi`_)
