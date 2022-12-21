@@ -6,7 +6,7 @@
 _December 19th 2022:_<br/>
 **Home Automation:**<br/>Back in late 2016, I started working on a hobby project with the goal to monitor and automate things at home. I started with a [Raspberry Pi](https://en.wikipedia.org/wiki/Raspberry_Pi) and a [reed switch](https://en.wikipedia.org/wiki/Reed_switch). Over the years, I have expanded the project to include multiple doors, garage remote control, lights, security system, notification, system health monitoring. Let me start by listing the hardware and software components used in my project and provide architecture and design overview of the entire system.
 
-#### Hardware:
+#### HARDWARE:
 - [Raspberry pi](https://www.adafruit.com/product/4295){:target="_blank"}
 - [Ademco contact switch 7939WG](https://www.amazon.com/7939WG-WH-Ademco-Surface-Mount-Contacts/dp/B001DEUUZC/){:target="_blank"}
 - [Honeywell glass break sensor](https://www.amazon.com/Honeywell-Ademco-ASC-SS1-Shock-Sensor/dp/B000GUV1W0){:target="_blank"}
@@ -16,7 +16,7 @@ _December 19th 2022:_<br/>
 - [GPIO jumper wires](https://www.amazon.com/GenBasic-Piece-Female-Jumper-Wires/dp/B077N58HFK/){:target="_blank"}
 - [Wire spool](https://www.adafruit.com/product/4734){:target="_blank"}
 
-#### Software:
+#### SOFTWARE:
 - [Pi4j](https://pi4j.com/){:target="_blank"}
 - [Java](https://www.oracle.com/java/technologies/javase/jdk11-archive-downloads.html){:target="_blank"}
 - [Cloud AMQP](https://www.cloudamqp.com/){:target="_blank"} Or [RabbitMQ](https://www.rabbitmq.com/#getstarted){:target="_blank"}
@@ -26,7 +26,7 @@ _December 19th 2022:_<br/>
 - [Prometheus JMX exporter](https://github.com/prometheus/jmx_exporter){:target="_blank"}
 - [Telegram Bot Library](https://github.com/rubenlagus/TelegramBots){:target="_blank"}
 
-#### Architecture:
+#### ARCHITECTURE:
 ![Architecture](media/HomeAutomation_Architecture_Diagram.png)
 
 `MasterRaspberryPi`: The main web application(war) is running on a tomcat server on this pi. This is the central system(brain) to which all the peripheral devices such as sensors, remotes etc send status information (via other locally located raspberry pis). The web application makes the decision based on the input it receives from the devices. For example - if the main door is opened and the current time is 23:00 and the home is armed, then the siren needs start along with sending notifications to users. This also provides a simple UI which lists all controls for the output devices (lights, sirens, garage remote). There are configuration pages available that allows end user to arm/dis-arm home, select time ranges, wifi control etc. There are some advanced configurations that allows to set the IP address of other raspberry pis.
@@ -43,10 +43,10 @@ _December 19th 2022:_<br/>
 
 `Grafana:` I have configured a dashboard which gives an overview on the health of the entire system. I'm tracking the heap usage, thread counts, temperature, errors (using [loki](https://grafana.com/docs/loki/latest/clients/promtail/){:target="_blank"}), up time for each of the applications in my system. I have also configured alerts (to be sent to my telegram app) when there is any deviation from the baseline such as - application is down, heap usage or thread count is growing etc.
 
-#### Wiring drawing:
+#### WIRING DRAWING:
 
 
-#### Screen captures:
+#### SCREEN CAPTURES captures:
 
 `Grafana`:
 
