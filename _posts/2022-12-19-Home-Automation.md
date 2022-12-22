@@ -87,13 +87,17 @@ Login page of the web application
 ![Dashboard](https://raw.githubusercontent.com/gmrock/website/main/media/config.png)
 <br/>Internal configuration page
 ![Dashboard](https://raw.githubusercontent.com/gmrock/website/main/media/internal_config.png)
+
 <br/>
+
 ##### `Grafana`:
 Dashboard showing various widgets for monitoring (including otel traces from _`MasterRaspberryPi`_)
 ![Dashboard](https://raw.githubusercontent.com/gmrock/website/main/media/grafana.png)
 Heap usage and temperature monitoring
 ![Heap usage, temperature](https://raw.githubusercontent.com/gmrock/website/main/media/grafana_1.png)
+
 <br/>
+
 ##### `Telegram Notification`:
 Telegram notifications about door sensors
 <br/> <img src="https://raw.githubusercontent.com/gmrock/website/main/media/A8B57369-8EE1-43BF-BEE6-ED2A2B7BBE31.jpeg" alt="Telegram app notification" style="width:200px;"/>
