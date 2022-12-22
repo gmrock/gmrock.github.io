@@ -88,22 +88,6 @@ Telegram notifications about door sensors
 <br/>Telegram message to send command signals
 <br/> <img src="https://raw.githubusercontent.com/gmrock/website/main/media/5BCCB732-34F5-4BF8-8261-B5CBF5AC5724.jpeg" alt="Telegram app status and control" style="width:200px;"/>
 
-
-<script>
-  (function() {
-      if (location.pathname === '/') {
-      	return;
-      }
-      var main = document.querySelector('main');
-      var script = document.createElement('script');
-      script.src='https://utteranc.es/client.js'
-      script.setAttribute('repo', 'gmrock/gmrock.github.io');
-      script.setAttribute('issue-term', 'pathname');
-      main.appendChild(script);
-  })();  
-</script>
-
-
 <script src="https://utteranc.es/client.js"
         repo="gmrock/gmrock.github.io"
         issue-term="pathname"
