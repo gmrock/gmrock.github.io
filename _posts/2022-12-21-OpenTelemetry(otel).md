@@ -1,3 +1,14 @@
+~~~
+<script src="https://utteranc.es/client.js"
+        repo="gmrock.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+~~~
+
+
 Working in the [APM](https://www.gartner.com/en/information-technology/glossary/application-performance-monitoring-apm){:target="_blank"} domain has allowed me to explore the latest and greatest in the field of [APM](https://www.gartner.com/en/information-technology/glossary/application-performance-monitoring-apm){:target="_blank"} and [FSO](https://www.appdynamics.com/topics/what-is-full-stack-observability#~the-modern-technology-landscape){:target="_blank"}. Until recently all the solutions available in the market were proprietary. 
 
 
