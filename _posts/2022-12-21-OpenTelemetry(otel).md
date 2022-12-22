@@ -91,6 +91,7 @@ Telegram notifications about door sensors
 <script src="https://utteranc.es/client.js"
         repo="gmrock.github.io"
         issue-term="pathname"
+        label="Comments"
         theme="github-light"
         crossorigin="anonymous"
         async>
