@@ -1,14 +1,3 @@
-~~~
-<script src="https://utteranc.es/client.js"
-        repo="gmrock.github.io"
-        issue-term="pathname"
-        theme="github-light"
-        crossorigin="anonymous"
-        async>
-</script>
-~~~
-
-
 Working in the [APM](https://www.gartner.com/en/information-technology/glossary/application-performance-monitoring-apm){:target="_blank"} domain has allowed me to explore the latest and greatest in the field of [APM](https://www.gartner.com/en/information-technology/glossary/application-performance-monitoring-apm){:target="_blank"} and [FSO](https://www.appdynamics.com/topics/what-is-full-stack-observability#~the-modern-technology-landscape){:target="_blank"}. Until recently all the solutions available in the market were proprietary. 
 
 
@@ -98,3 +87,11 @@ Telegram notifications about door sensors
 <br/> <img src="https://raw.githubusercontent.com/gmrock/website/main/media/A8B57369-8EE1-43BF-BEE6-ED2A2B7BBE31.jpeg" alt="Telegram app notification" style="width:200px;"/>
 <br/>Telegram message to send command signals
 <br/> <img src="https://raw.githubusercontent.com/gmrock/website/main/media/5BCCB732-34F5-4BF8-8261-B5CBF5AC5724.jpeg" alt="Telegram app status and control" style="width:200px;"/>
+
+<script src="https://utteranc.es/client.js"
+        repo="gmrock.github.io"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
