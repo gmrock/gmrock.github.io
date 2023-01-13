@@ -1,6 +1,6 @@
 Back in late 2016, I started working on a hobby project with the goal to monitor and automate things at 🏠. I started with a [Raspberry Pi](https://en.wikipedia.org/wiki/Raspberry_Pi){:target="_blank"} and a [reed switch](https://en.wikipedia.org/wiki/Reed_switch){:target="_blank"}.
 
-Over the years, I have expanded the project to include multiple doors, garage remote control, lights, security system, notification, system health monitoring. Let me start by listing the hardware and software components used in my project and provide architecture and design overview of the entire system.
+Over the years, I have expanded the project to include multiple door sensors, garage remote control, light control, security system, notification, system health monitoring. I'm listing the hardware and software components used in my project and will provide architecture and design overview of the entire system.
 
 #### HARDWARE:
 - [Raspberry pi](https://www.adafruit.com/product/4295){:target="_blank"}
@@ -31,12 +31,12 @@ Over the years, I have expanded the project to include multiple doors, garage re
 ![Architecture](https://raw.githubusercontent.com/gmrock/website/main/media/HomeAutomation_Architecture_Diagram.png)
 
 ##### `MasterRaspberryPi`: 
-The main web application(war) is running on a tomcat server on this pi. This is the central system(brain) to which all the peripheral devices such as sensors, remotes etc send status information (via other locally located raspberry pis). The web application makes the decision based on the input it receives from the devices. For example - if the main door is opened and the current time is 23:00 and the home is armed, then the siren needs start along with sending notifications to users. This also provides a simple UI which lists all controls for the output devices (lights, sirens, garage remote). There are configuration pages available that allows end user to arm/dis-arm home, select time ranges, wifi control etc. There are some advanced configurations that allows to set the IP address of other raspberry pis.
+This pi is hosting the main web application(war) on a tomcat server. This is the central system(brain) to which all the peripheral devices such as sensors, remotes etc send status information (via other locally located raspberry pis). The web application makes the decision based on the input it receives from the devices. For example - if the main door is opened and the current time is 23:00 and the home is armed, then the siren needs to start and send notifications to users. This also provides a simple UI which lists all controls for the output devices (lights, sirens, garage remote). There are configuration pages available that allow end users to arm/dis-arm home, select time slots, intelligent control etc. There are some advanced configurations that also allow the user to set the IP address of other raspberry pis.
 
 <br/>
 
 ##### `RpiS2GlassDoorSensor`:
-This is a running a java application (jar) which monitors the state of the reed switches for couple of doors and knob. Whenever there is any state change the application will relay the state to a cloud hosted rabbitmq (cloudamqp). The decision and the action what needs to be done on the state change is handled by _`MasterRaspberryPi`_. I'm using this library for interacting with the GPIO pins on the raspberry pi - [Pi4j](https://pi4j.com/){:target="_blank"} 
+This is a running a java application (jar) which monitors the state of the reed switches for a couple of doors and door knob as well. Whenever there is any state change the application will relay the state to a cloud hosted rabbitmq (cloudamqp). The decision and the action what needs to be done on the state change is handled by _`MasterRaspberryPi`_. I'm using this library for interacting with the GPIO pins on the raspberry pi - [Pi4j](https://pi4j.com/){:target="_blank"} 
 
 <br/>
 
