@@ -36,7 +36,7 @@ This pi is hosting the main web application(war) on a tomcat server. This is the
 <br/>
 
 ##### `RpiS2GlassDoorSensor`:
-This is a running a java application (jar) which monitors the state of the reed switches for a couple of doors and door knob as well. Whenever there is any state change the application will relay the state to a cloud hosted rabbitmq (cloudamqp). The decision and the action what needs to be done on the state change is handled by _`MasterRaspberryPi`_. I'm using this library for interacting with the GPIO pins on the raspberry pi - [Pi4j](https://pi4j.com/){:target="_blank"} 
+This is a running a java application (jar) which monitors the state of the reed switches for a couple of doors and door knob as well. Whenever there is any state change the application will relay the state to a cloud hosted rabbitmq (cloudamqp). The action to be executed on the state change is handled by _`MasterRaspberryPi`_. I'm using this library for interacting with the GPIO pins on the raspberry pi - [Pi4j](https://pi4j.com/){:target="_blank"} 
 
 <br/>
 
