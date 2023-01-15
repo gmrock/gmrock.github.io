@@ -71,7 +71,7 @@ I'm running the [otel collector](https://opentelemetry.io/docs/collector/getting
 <hr/>
 
 #### WIRING DRAWING:
-Below are the wiring drawings to connect raspberry pi GPIO to siren, reed switch and garage remote control
+Below are the wiring drawings to connect raspberry pi GPIO to siren, reed switch and garage opener
 ![Wiring drawing](https://raw.githubusercontent.com/gmrock/website/main/media/Wiring_Drawings.png)
 
 <hr/>
