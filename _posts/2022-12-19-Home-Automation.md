@@ -36,12 +36,12 @@ This pi is hosting the main web application(war) on a tomcat server. This is the
 <br/>
 
 ##### `RpiS2GlassDoorSensor`:
-This is a running a java application (jar) which monitors the state of the reed switches for a couple of doors and door knob as well. Whenever there is any state change the application will relay the state to a cloud hosted rabbitmq (cloudamqp). The action to be executed on the state change is handled by _`MasterRaspberryPi`_. I'm using this library for interacting with the GPIO pins on the raspberry pi - [Pi4j](https://pi4j.com/){:target="_blank"} 
+This is a running a java application (jar) which monitors the state of the reed switches installed on doors. I'm also using the reed switches to check on the position of the door knob. Whenever there is any state change the application will relay the state to a cloud hosted rabbitmq (cloudamqp). The action to be executed on the state change is handled by _`MasterRaspberryPi`_. I'm using this library for interacting with the GPIO pins on the raspberry pi - [Pi4j](https://pi4j.com/){:target="_blank"} 
 
 <br/>
 
 ##### `RpiS3ShutterGarageSiren` & `RpiS4HallSirenGarageRemote`:
-Similar to the _`RpiS2GlassDoorSensor`_ this is running a java application (jar) that monitors the reed switch along with controlling the siren. The action what triggers the siren and other related activities is decided by the _`MasterRaspberryPi`_. The communication between _`MasterRaspberryPi`_ and reed switches, siren is done via rabbitmq (cloudamqp). _`RpiS4HallSirenGarageRemote`_ also has Garage remote control wired up which is again controller via the rabbitmq.
+Similar to the _`RpiS2GlassDoorSensor`_ this is running a java application (jar) that monitors the reed switch. This application has an additional functionality which is to control the siren. The _`MasterRaspberryPi`_ communicates with these applications to control the state of the siren. The communication between _`MasterRaspberryPi`_ and reed switches, siren is done via rabbitmq (cloudamqp). _`RpiS4HallSirenGarageRemote`_ also has Garage remote control wired up which is again controlled via the rabbitmq.
 
 <br/>
 
@@ -51,7 +51,7 @@ The communication between the _`MasterRaspberryPi`_ and other peripheral applica
 <br/>
 
 ##### `telegram`:
-I have developed a telegram bot that is running on _`MasterRaspberryPi`_. This bot is used to get commands from end user over telegram app and based on the command control the associated applications. The notifications, are also sent to end users as telegram messages. For example - whenever any door is opened/closed, siren started etc.
+I have developed a telegram bot that is running on _`MasterRaspberryPi`_. The bot is listening for commands from authenticated end users. These users use the telegram app to send the commands. Based on the command received, my code will perform the necessary steps. Telegram bot is also used as notification system to provide up to date notifications. For example - whenever any door is opened/closed, siren started etc.
 
 <br/>
 
@@ -61,17 +61,17 @@ I'm running a local instance of prometheus on one of the raspberry pi. All the i
 <br/>
 
 ##### `Grafana`:
-I have configured a dashboard which gives an overview on the health of the entire system. I'm tracking the heap usage, thread counts, temperature, errors (using [loki](https://grafana.com/docs/loki/latest/clients/promtail/){:target="_blank"}), up time for each of the applications in my system. I have also configured alerts (to be sent to my telegram app) when there is any deviation from the baseline such as - application is down, heap usage or thread count is growing etc.
+I have configured a dashboard which gives an overview of the health of the entire system. I'm tracking the heap usage, thread counts, temperature, errors (using [loki](https://grafana.com/docs/loki/latest/clients/promtail/){:target="_blank"}), up time for each of the applications in my system. I have also configured alerts (to be sent to my telegram app) when there is any deviation from the baseline such as - application is down, heap usage or thread count is growing etc.
 
 <br/>
 
 ##### `otel with Grafana Tempo`:
-I'm running the [otel collector](https://opentelemetry.io/docs/collector/getting-started/){:target="_blank"} on the _`MasterRaspberryPi`_. The tomcat web application is instrumented with [otel javaagent](https://opentelemetry.io/docs/instrumentation/java/automatic/){:target="_blank"} and the traces are collected by the [otel collector](https://opentelemetry.io/docs/collector/getting-started/){:target="_blank"} and publishes the metrics to Grafana Tempo.
+I'm running the [otel collector](https://opentelemetry.io/docs/collector/getting-started/){:target="_blank"} on the _`MasterRaspberryPi`_. The tomcat web application is instrumented with [otel javaagent](https://opentelemetry.io/docs/instrumentation/java/automatic/){:target="_blank"} and the traces are collected by the [otel collector](https://opentelemetry.io/docs/collector/getting-started/){:target="_blank"}. The collected metrics are published to Grafana Tempo.
 
 <hr/>
 
 #### WIRING DRAWING:
-Below are the wiring drawings to connect raspberry pi GPIO to siren, reed switch and garage remote wiring
+Below are the wiring drawings to connect raspberry pi GPIO to siren, reed switch and garage remote control
 ![Wiring drawing](https://raw.githubusercontent.com/gmrock/website/main/media/Wiring_Drawings.png)
 
 <hr/>
