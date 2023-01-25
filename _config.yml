@@ -9,6 +9,7 @@ minima:
   date_format: "%b %-d, %Y"
 markdown: kramdown
 show_excerpts: true
+remote_theme: jekyll/minima
 plugins:
  - jekyll-feed
  - jekyll-seo-tag
