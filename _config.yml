@@ -4,12 +4,8 @@ author:
   email: ganesh@domain.com
 description: Random things on everything electronics and software engineering
 theme: minima
-minima:
-  skin: dark
-  date_format: "%b %-d, %Y"
 markdown: kramdown
 show_excerpts: true
-remote_theme: jekyll/minima
 plugins:
  - jekyll-feed
  - jekyll-seo-tag
