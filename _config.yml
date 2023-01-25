@@ -4,6 +4,7 @@ author:
   email: ganesh@domain.com
 description: Random things on everything electronics and software engineering
 theme: minima
+skin: dark
 markdown: kramdown
 show_excerpts: true
 plugins:
