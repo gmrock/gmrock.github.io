@@ -82,7 +82,7 @@ gmagal@masterrpi:~ $ ls /dev/tty*
 /dev/tty1   /dev/tty13  /dev/tty17  /dev/tty20  /dev/tty24  /dev/tty28  /dev/tty31  /dev/tty35  /dev/tty39  /dev/tty42  /dev/tty46  /dev/tty5   /dev/tty53  /dev/tty57  /dev/tty60  /dev/tty7   /dev/ttyprintk
 /dev/tty10  /dev/tty14  /dev/tty18  /dev/tty21  /dev/tty25  /dev/tty29  /dev/tty32  /dev/tty36  /dev/tty4   /dev/tty43  /dev/tty47  /dev/tty50  /dev/tty54  /dev/tty58  /dev/tty61  /dev/tty8
 ```
-
+<br/>
 #### Step 4:
 Keeping the `boot` button pressed connect it to the computer's USB port. Only steady red LED will glow
 
@@ -116,24 +116,24 @@ This will pop-up below screen in the terminal.
 
 You can navigate the screen using keyboard arrows and choose specific suboption choose the alphabet next to it.
 Below are the things that needs to be configured before we can flash the device:
-1. Filenames and paths: Provide the directory path where you have downloaded the new firmware which you want to flash
+* 'Filenames and paths': Provide the directory path where you have downloaded the new firmware which you want to flash
 
 ![Filenames and paths](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/minicom2.png)
 
 
-2. File transfer protocols: XMODEM should be enabled (it's enabled by default). This is how it should look (if you need to change XMODEM to use command as `lsx` you need to change it in this screen)
+* 'File transfer protocols': XMODEM should be enabled (it's enabled by default). This is how it should look (if you need to change XMODEM to use command as `lsx` you need to change it in this screen)
 
 ![File transfer protocols](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/minicom_3.png)
 
-3. Serial port setup: This is the place where we specify our Serial Device (which we obtained in Step 5 above). The baud rate should be 115200 (default)
+* 'Serial port setup': This is the place where we specify our Serial Device (which we obtained in Step 5 above). The baud rate should be 115200 (default)
 
 ![Serial port setup](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/minicom4.png)
 
-4. Save the Setup as df1: Save our configuration, so that next time the settings are saved
+* 'Save the Setup as df1': Save our configuration, so that next time the settings are saved
 
 ![Save the Setup as df1](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/minicom_5.png)
 
-5. Exit: Exit from the configuration screen. This should take to the command screen
+* 'Exit': Exit from the configuration screen. This should take to the command screen
 
 #### Step 7:
 Now press `1` on the keyboard, you should see something like below, the upload connection is established to the USB device:
@@ -154,7 +154,7 @@ Press `s`, you should see options like below:
 We need to choose `xmodem` protocol. Use keyboard arrow to navigate to `xmodem` and hit `return` on your keyboard. This should open up a dialog inside terminal showing all the files available inside the directory which we had configured in Step 6 (under 1).
 
 ![files](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/minicom7c.png)
-
+<br/>
 #### Step 11:
 Using keyboard arrow key navigate to the firmware file and hit space bar to choose that file, followed by return. This should start the upload
 process and you should see something like:
