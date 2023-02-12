@@ -16,10 +16,54 @@ Unscrew [SonOff Zigbee dongle plus E](https://sonoff.tech/product/gateway-and-se
 !PHOTO GOES HERE !
 
 Step 2:
-Download and install [minicom](https://packages.debian.org/sid/minicom){:target="_blank"}, how you download might be different based on the OS you are using.
+Download and install [minicom](https://packages.debian.org/sid/minicom){:target="_blank"}.
 For linux OS, run the below command:
 ```
 sudo apt-get install minicom
+```
+minicom has a dependency on [lrzsz](https://www.ohse.de/uwe/software/lrzsz.html){:target="_blank"} which is needed for XMODEM,YMODEM and ZMODEM communication. On linux platform, when minicom is installed using above command, this dependency is automatically installed. However, on MAC OS, this dependency is not installed with minicom. Follow the below steps to install minicom and the dependency on MAC OS.
+
+For MAC OS:
+* run the below command to install minicom:
+```
+brew install minicom
+```
+* run the below command to install the dependency [lrzsz](https://www.ohse.de/uwe/software/lrzsz.html){:target="_blank"}:
+```
+brew install lrzsz
+```
+* minicom internally uses `sx` to use XMODEM communication (this can be changed in Step 6 configuration page to make it use lsx. If you do so
+skip below points and jump to Step 3). However, if you look at the installation directory, inside `bin` directory for lrzsz there is no `sx` command.
+There is `lsx` command which is same as `sx`. 
+
+```
+ganesh@magal:/usr/local/Cellar/lrzsz/0.12.20_1/bin$ ls
+lrb	lrx	lrz	lsb	lsx	lsz	rz	sz
+```
+`/usr/local/Cellar/lrzsz/0.12.20_1/bin` is the location where homebrew installed lrzsz.
+* we will create a symlink called `sx` and link it to `lsx` which is already inside the `bin` directory.
+```
+ln -s /usr/local/Cellar/lrzsz/0.12.20_1/bin/lsx /usr/local/Cellar/lrzsz/0.12.20_1/bin/sx
+
+```
+* should see like this now:
+```
+gmagal@magal:/usr/local/Cellar/lrzsz/0.12.20_1/bin$ ls
+lrb	lrx	lrz	lsb	lsx	lsz	rz	sx	sz
+```
+* one last thing that needs to be done is to add `sx` to PATH. When using shell as zsh. Create ~/.zshrc if not already present:
+```
+gmagal@GMAGAL-M-M1D2:$ nano ~/.zshrc
+```
+* add below to the ~/.zshrc file, save and exit terminal:
+```
+export PATH=/usr/local/Cellar/lrzsz/0.12.20_1/bin:$PATH
+```
+* reopen terminal and type `sx` see if the command was found. If not found, the PATH has been set in the correct file (below command was found):
+```
+gmagal@magal:~$ sx
+sx: need at least one file to send
+Try `sx --help' for more information.
 ```
 
 Step 3:
