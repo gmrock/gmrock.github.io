@@ -186,3 +186,5 @@ Screw back the case and plug it into any USB outlet with 5V DC (minimum 1Amp cur
 <br/>
 #### Step 15:
 Using Homeassistant or zigbee2mqtt we can pair the new router with the zigbee coordinator
+
+<script src="https://utteranc.es/client.js" repo="gmrock/gmrock.github.io" issue-term="pathname" label="Comments" theme="github-light" crossorigin="anonymous" async> </script> 
