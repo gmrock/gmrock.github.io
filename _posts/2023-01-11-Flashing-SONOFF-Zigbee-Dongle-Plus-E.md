@@ -32,7 +32,7 @@ brew install minicom
 ```
 brew install lrzsz
 ```
-* minicom internally uses `sx` to use XMODEM communication (this can be changed in Step 6 configuration page to make it use lsx. If you do so
+* minicom internally uses `sx` to use XMODEM communication (this can be changed in Step 6 > #2 configuration page to make it use lsx. If you do so
 skip below points and jump to Step 3). However, if you look at the installation directory, inside `bin` directory for lrzsz there is no `sx` command.
 There is `lsx` command which is same as `sx`. 
 
