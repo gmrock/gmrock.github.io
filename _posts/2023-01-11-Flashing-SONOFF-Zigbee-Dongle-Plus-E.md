@@ -110,49 +110,49 @@ sudo minicom -s -c on
 ```
 This will pop-up below screen in the terminal.
 
-![main page](https://github.com/gmrock/gmrock.github.io/blob/main/media/minicom_1.png)
+![main page](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/minicom_1.png)
 
 You can navigate the screen using keyboard arrows and choose specific suboption choose the alphabet next to it.
 Below are the things that needs to be configured before we can flash the device:
 1. Filenames and paths: Provide the directory path where you have downloaded the new firmware which you want to flash
 
-![Filenames and paths](https://github.com/gmrock/gmrock.github.io/blob/main/media/minicom2.png)
+![Filenames and paths](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/minicom2.png)
 
 
 2. File transfer protocols: XMODEM should be enabled (it's enabled by default). This is how it should look (if you need to change XMODEM to use command as `lsx` you need to change it in this screen)
 
-![File transfer protocols](https://github.com/gmrock/gmrock.github.io/blob/main/media/minicom_3.png)
+![File transfer protocols](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/minicom_3.png)
 
 3. Serial port setup: This is the place where we specify our Serial Device (which we obtained in Step 5 above). The baud rate should be 115200 (default)
 
-![Serial port setup](https://github.com/gmrock/gmrock.github.io/blob/main/media/minicom4.png)
+![Serial port setup](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/minicom4.png)
 
 4. Save the Setup as df1: Save our configuration, so that next time the settings are saved
 
-![Save the Setup as df1](https://github.com/gmrock/gmrock.github.io/blob/main/media/minicom_5.png)
+![Save the Setup as df1](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/minicom_5.png)
 
 5. Exit: Exit from the configuration screen. This should take to the command screen
 
 Step 7: Now press `1` on the keyboard, you should see something like below, the upload connection is established to the USB device:
 
-![1](https://github.com/gmrock/gmrock.github.io/blob/main/media/minicom6.png)
+![1](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/minicom6.png)
 
 Step 8: Now press `control` and `a` together, leave it and press `z` on your keyboard, this should open up the options and you can `s` is used for sending file to the device (on MAC OS, META key needs to be mapped to OPTIONS key which can be done from terminal > keyboard preferences).
 
-![control+a](https://github.com/gmrock/gmrock.github.io/blob/main/media/minicom7a.png)
+![control+a](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/minicom7a.png)
 
 Step 9: Press `s`, you should see options like below:
 
-![s](https://github.com/gmrock/gmrock.github.io/blob/main/media/minicom7b.png)
+![s](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/minicom7b.png)
 
 Step 10: We need to choose `xmodem` protocol. Use keyboard arrow to navigate to `xmodem` and hit `return` on your keyboard. This should open up a dialog inside terminal showing all the files available inside the directory which we had configured in Step 6 (under 1).
 
-![files](https://github.com/gmrock/gmrock.github.io/blob/main/media/minicom7c.png)
+![files](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/minicom7c.png)
 
 Step 11: Using keyboard arrow key navigate to the firmware file and hit space bar to choose that file, followed by return. This should start the upload
 process and you should see something like:
 
-![upload](https://github.com/gmrock/gmrock.github.io/blob/main/media/minicom7d.png)
+![upload](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/minicom7d.png)
 
 Step 12: Now disconnect [SonOff Zigbee dongle plus E](https://sonoff.tech/product/gateway-and-sensors/sonoff-zigbee-3-0-usb-dongle-plus-e/){:target="_blank"} from your computer
 
