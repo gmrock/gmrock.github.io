@@ -120,18 +120,16 @@ Below are the things that needs to be configured before we can flash the device:
 2. File transfer protocols: XMODEM should be enabled (it's enabled by default). This is how it should look
 ![File transfer protocols](https://github.com/gmrock/gmrock.github.io/blob/main/media/minicom_3.png)
 
-3. Serial port setup: This is the place where we specify our Serial Device (which we obtained in Step 5 above). The baud rate
-should be 115200 (default)
+3. Serial port setup: This is the place where we specify our Serial Device (which we obtained in Step 5 above). The baud rate should be 115200 (default)
 ![Serial port setup](https://github.com/gmrock/gmrock.github.io/blob/main/media/minicom4.png)
 
 4. Save the Setup as df1: Save our configuration, so that next time the settings are saved
 ![Save the Setup as df1](https://github.com/gmrock/gmrock.github.io/blob/main/media/minicom_5.png)
 
 5. Exit: Exit from the configuration screen. This should take to the command screen
-!Photo here !
 
-Step 7: Now press `1` on the keyboard, you should see something like below, the upload connection is established to the USB device:
-!Photo here !
+Step 6: Now press `1` on the keyboard, you should see something like below, the upload connection is established to the USB device:
+!(https://github.com/gmrock/gmrock.github.io/blob/main/media/minicom6.png)
 
 Step 9: Now press `control` and `a` together, leave it and press `z` on your keyboard, this should open up the options and you can `s` is used for sending file to the device (on MAC OS, META key needs to be mapped to OPTIONS key which can be done from terminal > keyboard preferences).
 !Photo here!
