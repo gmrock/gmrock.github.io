@@ -2,35 +2,35 @@ I have compiled the details for flashing [SonOff Zigbee dongle plus E](https://s
 
 ### Why flash firmware:
 - upgrade
-- to use a different (opensource) option
+- alternate (opensource) option
 - convert a Zigbee coordinator into a Zigbee router (this was my use case)
 
 
-Apparently, the [SonOff Zigbee dongle plus E](https://sonoff.tech/product/gateway-and-sensors/sonoff-zigbee-3-0-usb-dongle-plus-e/){:target="_blank"} acts as a very good router (I have just started using it as router and so far it's reliable).
+Apparently, the [SonOff Zigbee dongle plus E](https://sonoff.tech/product/gateway-and-sensors/sonoff-zigbee-3-0-usb-dongle-plus-e/){:target="_blank"} acts as a very good router (I have started using it as router and so far it's reliable).
 
 <br/>
 #### Step 1:
-Download the router firmware (also provided coordinator firmware link incase you want to reflash the coordinator firmware)
+Download the router firmware
 * [SonOff Zigbee dongle plus E](https://sonoff.tech/product/gateway-and-sensors/sonoff-zigbee-3-0-usb-dongle-plus-e/){:target="_blank"} **router** firmware: https://github.com/itead/Sonoff_Zigbee_Dongle_Firmware/tree/master/Dongle-E/Router
-* [SonOff Zigbee dongle plus E](https://sonoff.tech/product/gateway-and-sensors/sonoff-zigbee-3-0-usb-dongle-plus-e/){:target="_blank"} **coordinator** firmware: https://github.com/itead/Sonoff_Zigbee_Dongle_Firmware/tree/master/Dongle-E/NCP
+* [SonOff Zigbee dongle plus E](https://sonoff.tech/product/gateway-and-sensors/sonoff-zigbee-3-0-usb-dongle-plus-e/){:target="_blank"} **coordinator** firmware: https://github.com/itead/Sonoff_Zigbee_Dongle_Firmware/tree/master/Dongle-E/NCP (incase you want to reflash the coordinator firmware)
 
 <br/>
 #### Step 2:
-Unscrew [SonOff Zigbee dongle plus E](https://sonoff.tech/product/gateway-and-sensors/sonoff-zigbee-3-0-usb-dongle-plus-e/){:target="_blank"}'s case. Will need to only unscrew the 2 screws which are on the side of the USB port. This is to get access to the boot button.
+Unscrew [SonOff Zigbee dongle plus E](https://sonoff.tech/product/gateway-and-sensors/sonoff-zigbee-3-0-usb-dongle-plus-e/){:target="_blank"}'s case. You will only need to unscrew the 2 screws that are on the side of the USB port. This is to get access to the boot button on the board.
 
 ![boot](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/C51079D8-DC05-4C04-B209-061AA596CF41.jpeg)
 
 <br/>
 #### Step 3:
 Download and install [minicom](https://packages.debian.org/sid/minicom){:target="_blank"}. There are other tools that can also be used such as
-[coolterm](https://freeware.the-meiers.org/). If using `coolterm` on MAC OS make sure you take care of steps detailed below `For MAC OS`. 
+[coolterm](https://freeware.the-meiers.org/). If using `coolterm` execute the steps detailed below under `For MAC OS`. 
 
-**For linux OS:**
+**For Linux OS:**
 * run the below command:**
 ```
 sudo apt-get install minicom
 ```
-minicom has a dependency on [lrzsz](https://www.ohse.de/uwe/software/lrzsz.html){:target="_blank"} which is needed for XMODEM,YMODEM and ZMODEM communication. On linux platform, when minicom is installed using above command, this dependency is automatically installed. However, on MAC OS, this dependency is not installed with minicom. Follow the below steps to install minicom and the dependency on MAC OS.
+[minicom](https://packages.debian.org/sid/minicom){:target="_blank"} has a dependency on [lrzsz](https://www.ohse.de/uwe/software/lrzsz.html){:target="_blank"}. `lrzsz` is needed for XMODEM,YMODEM and ZMODEM communication. On linux platform, when minicom is installed using above command, this dependency is automatically installed. However, on MAC OS, this dependency is not installed with minicom. Follow the below steps to install minicom and the dependency on MAC OS.
 
 **For MAC OS:**
 * run the below command to install minicom:
@@ -41,15 +41,14 @@ brew install minicom
 ```
 brew install lrzsz
 ```
-* minicom internally uses `sx` to use XMODEM communication (this can be changed in Step 6 > #2 configuration page to make it use lsx. If you do so
-skip below points and jump to Step 3). However, if you look at the installation directory, inside `bin` directory for lrzsz there is no `sx` command.
-There is `lsx` command which is same as `sx`. 
+* minicom internally uses `sx` to use XMODEM communication (this can be changed in Step 7 `File transfer protocols` configuration page to make it use `lsx`. If you do so skip below steps and jump to Step 4). If you look at the installation's `bin` directory of `lrzsz` there is no `sx` executable.
+There is `lsx` executable which is same as `sx`. 
 
 ```
 ganesh@magal:/usr/local/Cellar/lrzsz/0.12.20_1/bin$ ls
 lrb	lrx	lrz	lsb	lsx	lsz	rz	sz
 ```
-`/usr/local/Cellar/lrzsz/0.12.20_1/bin` is the location where homebrew installed lrzsz.
+`/usr/local/Cellar/lrzsz/0.12.20_1/bin` is the location where homebrew installed `lrzsz`.
 * we will create a symlink called `sx` and link it to `lsx` which is already inside the `bin` directory.
 
 ```
