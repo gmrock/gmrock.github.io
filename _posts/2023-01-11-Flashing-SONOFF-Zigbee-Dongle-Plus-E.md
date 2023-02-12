@@ -1,4 +1,4 @@
-I have compiled the details for flashing [SonOff Zigbee dongle plus E](https://sonoff.tech/product/gateway-and-sensors/sonoff-zigbee-3-0-usb-dongle-plus-e/){:target="_blank"} with router firmware on Linux and MAC OS.
+I have compiled the details for flashing [SonOff Zigbee dongle plus E](https://sonoff.tech/product/gateway-and-sensors/sonoff-zigbee-3-0-usb-dongle-plus-e/){:target="_blank"} with router firmware on Linux 🐧 and MAC 🍎 OS.
 
 ### Why flash firmware:
 - upgrade
