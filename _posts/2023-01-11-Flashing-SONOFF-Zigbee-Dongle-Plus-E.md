@@ -117,7 +117,7 @@ Below are the things that needs to be configured before we can flash the device:
 ![Filenames and paths](https://github.com/gmrock/gmrock.github.io/blob/main/media/minicom2.png)
 
 
-2. File transfer protocols: XMODEM should be enabled (it's enabled by default). This is how it should look
+2. File transfer protocols: XMODEM should be enabled (it's enabled by default). This is how it should look (if you need to change XMODEM to use command as `lsx` you need to change it in this screen)
 ![File transfer protocols](https://github.com/gmrock/gmrock.github.io/blob/main/media/minicom_3.png)
 
 3. Serial port setup: This is the place where we specify our Serial Device (which we obtained in Step 5 above). The baud rate should be 115200 (default)
@@ -129,20 +129,20 @@ Below are the things that needs to be configured before we can flash the device:
 5. Exit: Exit from the configuration screen. This should take to the command screen
 
 Step 6: Now press `1` on the keyboard, you should see something like below, the upload connection is established to the USB device:
-!(https://github.com/gmrock/gmrock.github.io/blob/main/media/minicom6.png)
+![1](https://github.com/gmrock/gmrock.github.io/blob/main/media/minicom6.png)
 
 Step 9: Now press `control` and `a` together, leave it and press `z` on your keyboard, this should open up the options and you can `s` is used for sending file to the device (on MAC OS, META key needs to be mapped to OPTIONS key which can be done from terminal > keyboard preferences).
-!Photo here!
+![control+a](https://github.com/gmrock/gmrock.github.io/blob/main/media/minicom7a.png)
 
 Step 10: Press `s`, you should see options like below:
-!Photo here! 
+![s](https://github.com/gmrock/gmrock.github.io/blob/main/media/minicom7b.png)
 
 Step 11: We need to choose `xmodem` protocol. Use keyboard arrow to navigate to `xmodem` and hit `return` on your keyboard. This should open up a dialog inside terminal showing all the files available inside the directory which we had configured in Step 6 (under 1).
-!Photo here!
+![files](https://github.com/gmrock/gmrock.github.io/blob/main/media/minicom7c.png)
 
 Step 12: Using keyboard arrow key navigate to the firmware file and hit space bar to choose that file, followed by return. This should start the upload
 process and you should see something like:
-!Photo!
+![upload](https://github.com/gmrock/gmrock.github.io/blob/main/media/minicom7d.png)
 
 Step 13: Now disconnect [SonOff Zigbee dongle plus E](https://sonoff.tech/product/gateway-and-sensors/sonoff-zigbee-3-0-usb-dongle-plus-e/){:target="_blank"} from your computer
 
