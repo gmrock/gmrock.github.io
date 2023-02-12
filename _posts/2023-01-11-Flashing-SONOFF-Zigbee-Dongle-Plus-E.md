@@ -114,7 +114,8 @@ This will pop-up below screen in the terminal.
 You can navigate the screen using keyboard arrows and choose specific suboption choose the alphabet next to it.
 Below are the things that needs to be configured before we can flash the device:
 1. Filenames and paths: Provide the directory path where you have downloaded the new firmware which you want to flash
-!Photo here!
+![Filenames and paths](https://github.com/gmrock/gmrock.github.io/blob/main/media/minicom2.png)
+
 
 2. File transfer protocols: XMODEM should be enabled (it's enabled by default). This is how it should look
 ! Photo here !
