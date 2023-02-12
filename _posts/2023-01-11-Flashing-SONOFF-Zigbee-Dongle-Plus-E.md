@@ -16,7 +16,7 @@ Download the router firmware
 
 <br/>
 #### Step 2:
-Unscrew [SonOff Zigbee dongle plus E](https://sonoff.tech/product/gateway-and-sensors/sonoff-zigbee-3-0-usb-dongle-plus-e/){:target="_blank"}'s case. We will only need to unscrew the 2 screws that are on the side of the USB port. This is to get access to the boot button on the board.
+🪛 Unscrew [SonOff Zigbee dongle plus E](https://sonoff.tech/product/gateway-and-sensors/sonoff-zigbee-3-0-usb-dongle-plus-e/){:target="_blank"}'s case. We will only need to unscrew the 2 screws that are on the side of the USB port. This is to get access to the boot button on the board.
 
 ![boot](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/C51079D8-DC05-4C04-B209-061AA596CF41.jpeg)
 
@@ -181,7 +181,7 @@ Now disconnect [SonOff Zigbee dongle plus E](https://sonoff.tech/product/gateway
 
 <br/>
 #### Step 14:
-Screw back the case and plug it into any USB outlet with 5V DC (minimum 1Amp current). The router should be in pairing mode.
+🪛 Screw back the case and plug it into any USB outlet with 5V DC (minimum 1Amp current). The router should be in pairing mode.
 
 <br/>
 #### Step 15:
