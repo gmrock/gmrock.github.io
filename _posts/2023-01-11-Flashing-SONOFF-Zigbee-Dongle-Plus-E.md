@@ -16,7 +16,9 @@ Unscrew [SonOff Zigbee dongle plus E](https://sonoff.tech/product/gateway-and-se
 !PHOTO GOES HERE !
 
 Step 2:
-Download and install [minicom](https://packages.debian.org/sid/minicom){:target="_blank"}.
+Download and install [minicom](https://packages.debian.org/sid/minicom){:target="_blank"}. There are other tools that can also be used such as
+[coolterm](https://freeware.the-meiers.org/). If using `coolterm` on MAC OS make sure you take care of steps detailed below `For MAC OS`. 
+
 For linux OS, run the below command:
 ```
 sudo apt-get install minicom
