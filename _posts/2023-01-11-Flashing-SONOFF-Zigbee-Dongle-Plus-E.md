@@ -132,7 +132,7 @@ should be 115200 (default)
 Step 7: Now press `1` on the keyboard, you should see something like below, the upload connection is established to the USB device:
 !Photo here !
 
-Step 9: Now press `control` and `a` together, leave it and press `z` on your keyboard, this should open up the options and you can `s` is used for sending file to the device
+Step 9: Now press `control` and `a` together, leave it and press `z` on your keyboard, this should open up the options and you can `s` is used for sending file to the device (on MAC OS, META key needs to be mapped to OPTIONS key which can be done from terminal > keyboard preferences).
 !Photo here!
 
 Step 10: Press `s`, you should see options like below:
