@@ -13,7 +13,7 @@ Apparently, the [SonOff Zigbee dongle plus E](https://sonoff.tech/product/gatewa
 Step 1:
 Unscrew [SonOff Zigbee dongle plus E](https://sonoff.tech/product/gateway-and-sensors/sonoff-zigbee-3-0-usb-dongle-plus-e/){:target="_blank"}'s case. Will need to only unscrew the 2 screws which are on the side of the USB port. This is to get access to the boot button.
 
-!PHOTO GOES HERE !
+![boot](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/C51079D8-DC05-4C04-B209-061AA596CF41.jpeg)
 
 Step 2:
 Download and install [minicom](https://packages.debian.org/sid/minicom){:target="_blank"}. There are other tools that can also be used such as
@@ -85,7 +85,7 @@ gmagal@masterrpi:~ $ ls /dev/tty*
 Step 4:
 Keeping the `boot` button pressed connect it to the computer's USB port. Only steady red LED will glow
 
-!PHOTO TO SHOW THE BOOT BUTTON!
+![boot](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/52D26826-0C80-4EA5-98C3-D78BD44C0809.jpeg)
 
 Step 5:
 Now, run the same command as Step 3. This time we will take a note of the serial device i.e. [SonOff Zigbee dongle plus E](https://sonoff.tech/product/gateway-and-sensors/sonoff-zigbee-3-0-usb-dongle-plus-e/){:target="_blank"}:
