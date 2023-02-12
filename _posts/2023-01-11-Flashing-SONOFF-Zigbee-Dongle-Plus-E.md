@@ -135,6 +135,7 @@ Step 9: Now press `control` and `a` together, leave it and press `z` on your key
 ![control+a](https://github.com/gmrock/gmrock.github.io/blob/main/media/minicom7a.png)
 
 Step 10: Press `s`, you should see options like below:
+
 ![s](https://github.com/gmrock/gmrock.github.io/blob/main/media/minicom7b.png)
 
 Step 11: We need to choose `xmodem` protocol. Use keyboard arrow to navigate to `xmodem` and hit `return` on your keyboard. This should open up a dialog inside terminal showing all the files available inside the directory which we had configured in Step 6 (under 1).
