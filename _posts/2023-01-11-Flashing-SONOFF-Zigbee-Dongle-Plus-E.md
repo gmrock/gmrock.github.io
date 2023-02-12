@@ -44,6 +44,7 @@ lrb	lrx	lrz	lsb	lsx	lsz	rz	sz
 ```
 `/usr/local/Cellar/lrzsz/0.12.20_1/bin` is the location where homebrew installed lrzsz.
 * we will create a symlink called `sx` and link it to `lsx` which is already inside the `bin` directory.
+
 ```
 ln -s /usr/local/Cellar/lrzsz/0.12.20_1/bin/lsx /usr/local/Cellar/lrzsz/0.12.20_1/bin/sx
 
