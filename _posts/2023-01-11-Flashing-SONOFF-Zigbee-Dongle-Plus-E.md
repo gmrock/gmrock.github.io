@@ -123,7 +123,7 @@ This will pop-up below screen in the terminal.
 
 ![main page](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/minicom_1.png)
 
-We can navigate the screen using keyboard arrows and to choose a specific suboption choose the alphabet next to it.
+We can navigate the screen using keyboard arrows. To choose a specific suboption enter the alphabet next to it.
 Below are the things that needs to be configured before we can flash the device:
 * `Filenames and paths`: Provide the directory path where we have downloaded the router firmware
 
