@@ -11,12 +11,12 @@ Apparently, the [SonOff Zigbee dongle plus E](https://sonoff.tech/product/gatewa
 <br/>
 #### Step 1:
 Download the router firmware
-* [SonOff Zigbee dongle plus E](https://sonoff.tech/product/gateway-and-sensors/sonoff-zigbee-3-0-usb-dongle-plus-e/){:target="_blank"} **router** firmware: https://github.com/itead/Sonoff_Zigbee_Dongle_Firmware/tree/master/Dongle-E/Router
-* [SonOff Zigbee dongle plus E](https://sonoff.tech/product/gateway-and-sensors/sonoff-zigbee-3-0-usb-dongle-plus-e/){:target="_blank"} **coordinator** firmware: https://github.com/itead/Sonoff_Zigbee_Dongle_Firmware/tree/master/Dongle-E/NCP (incase you want to reflash the coordinator firmware)
+* [SonOff Zigbee dongle plus E](https://sonoff.tech/product/gateway-and-sensors/sonoff-zigbee-3-0-usb-dongle-plus-e/){:target="_blank"} **router** [firmware](https://github.com/itead/Sonoff_Zigbee_Dongle_Firmware/tree/master/Dongle-E/Router){:target="_blank"}
+* [SonOff Zigbee dongle plus E](https://sonoff.tech/product/gateway-and-sensors/sonoff-zigbee-3-0-usb-dongle-plus-e/){:target="_blank"} **coordinator** [firmware](https://github.com/itead/Sonoff_Zigbee_Dongle_Firmware/tree/master/Dongle-E/NCP){:target="_blank"} (incase we want to reflash the coordinator firmware)
 
 <br/>
 #### Step 2:
-Unscrew [SonOff Zigbee dongle plus E](https://sonoff.tech/product/gateway-and-sensors/sonoff-zigbee-3-0-usb-dongle-plus-e/){:target="_blank"}'s case. You will only need to unscrew the 2 screws that are on the side of the USB port. This is to get access to the boot button on the board.
+Unscrew [SonOff Zigbee dongle plus E](https://sonoff.tech/product/gateway-and-sensors/sonoff-zigbee-3-0-usb-dongle-plus-e/){:target="_blank"}'s case. We will only need to unscrew the 2 screws that are on the side of the USB port. This is to get access to the boot button on the board.
 
 ![boot](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/C51079D8-DC05-4C04-B209-061AA596CF41.jpeg)
 
@@ -26,7 +26,7 @@ Download and install [minicom](https://packages.debian.org/sid/minicom){:target=
 [coolterm](https://freeware.the-meiers.org/). If using `coolterm` execute the steps detailed below under `For MAC OS`. 
 
 **For Linux OS:**
-* run the below command:**
+* run the below command:
 ```
 sudo apt-get install minicom
 ```
@@ -41,7 +41,7 @@ brew install minicom
 ```
 brew install lrzsz
 ```
-* minicom internally uses `sx` to use XMODEM communication (this can be changed in Step 7 `File transfer protocols` configuration page to make it use `lsx`. If you do so skip below steps and jump to Step 4). If you look at the installation's `bin` directory of `lrzsz` there is no `sx` executable.
+* minicom internally uses `sx` for XMODEM communication (this can be changed in Step 7 `File transfer protocols` configuration page to make it use `lsx`. If we decide to do so, we can skip below steps and jump to Step 4). If we take a look at the installation's `bin` directory of `lrzsz` there is no `sx` executable.
 There is `lsx` executable which is same as `sx`. 
 
 ```
@@ -60,15 +60,15 @@ ln -s /usr/local/Cellar/lrzsz/0.12.20_1/bin/lsx /usr/local/Cellar/lrzsz/0.12.20_
 gmagal@magal:/usr/local/Cellar/lrzsz/0.12.20_1/bin$ ls
 lrb	lrx	lrz	lsb	lsx	lsz	rz	sx	sz
 ```
-* one last thing that needs to be done is to add `sx` to PATH. When using shell as zsh. Create ~/.zshrc if not already present:
+* one last thing that needs to be done is to add `sx` to PATH. If using zsh as shell, create `~/.zshrc` if not already present:
 ```
 gmagal@GMAGAL-M-M1D2:$ nano ~/.zshrc
 ```
-* add below to the ~/.zshrc file, save and exit terminal:
+* add below line to the `/.zshrc` file:
 ```
 export PATH=/usr/local/Cellar/lrzsz/0.12.20_1/bin:$PATH
 ```
-* reopen terminal and type `sx` see if the command was found. If not found, the PATH has been set in the correct file (below command was found):
+* reopen terminal and type `sx` see if the command was found. If `sx` command is not found, the PATH has not been set in the correct file (belowsnippet shows `sx` command was found):
 ```
 gmagal@magal:~$ sx
 sx: need at least one file to send
@@ -92,13 +92,13 @@ gmagal@masterrpi:~ $ ls /dev/tty*
 
 <br/>
 #### Step 5:
-Keeping the `boot` button pressed connect it to the computer's USB port. Only steady red LED will glow
+Keeping the `boot` button pressed on [SonOff Zigbee dongle plus E](https://sonoff.tech/product/gateway-and-sensors/sonoff-zigbee-3-0-usb-dongle-plus-e/){:target="_blank"} connect it to the computer's USB port. Only steady red LED will glow.
 
 ![boot](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/52D26826-0C80-4EA5-98C3-D78BD44C0809.jpeg)
 
 <br/>
 #### Step 6:
-Now, run the same command as Step 3. This time we will take a note of the serial device i.e. [SonOff Zigbee dongle plus E](https://sonoff.tech/product/gateway-and-sensors/sonoff-zigbee-3-0-usb-dongle-plus-e/){:target="_blank"}:
+Now, run the same command as Step 4:
 ```
 ls /dev/tty*
 ```
@@ -110,7 +110,7 @@ gmagal@masterrpi:~ $ ls /dev/tty*
 /dev/tty1   /dev/tty13  /dev/tty17  /dev/tty20  /dev/tty24  /dev/tty28  /dev/tty31  /dev/tty35  /dev/tty39  /dev/tty42  /dev/tty46  /dev/tty5   /dev/tty53  /dev/tty57  /dev/tty60  /dev/tty7   /dev/ttyAMA0
 /dev/tty10  /dev/tty14  /dev/tty18  /dev/tty21  /dev/tty25  /dev/tty29  /dev/tty32  /dev/tty36  /dev/tty4   /dev/tty43  /dev/tty47  /dev/tty50  /dev/tty54  /dev/tty58  /dev/tty61  /dev/tty8   /dev/ttyprintk
 ```
-If you notice, we see the USB device - `/dev/ttyACM0`. This will be needed for configuring [minicom](https://packages.debian.org/sid/minicom){:target="_blank"}
+This time we see the USB device - `/dev/ttyACM0`. This will be needed for configuring [minicom](https://packages.debian.org/sid/minicom){:target="_blank"}
 
 <br/>
 #### Step 7:
@@ -123,22 +123,22 @@ This will pop-up below screen in the terminal.
 
 ![main page](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/minicom_1.png)
 
-You can navigate the screen using keyboard arrows and choose specific suboption choose the alphabet next to it.
+We can navigate the screen using keyboard arrows and to choose a specific suboption choose the alphabet next to it.
 Below are the things that needs to be configured before we can flash the device:
-* `Filenames and paths`: Provide the directory path where you have downloaded the new firmware which you want to flash
+* `Filenames and paths`: Provide the directory path where we have downloaded the router firmware
 
 ![Filenames and paths](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/minicom2.png)
 
 
-* `File transfer protocols`: XMODEM should be enabled (it's enabled by default). This is how it should look (if you need to change XMODEM to use command as `lsx` you need to change it in this screen)
+* `File transfer protocols`: XMODEM should be enabled (it's enabled by default). If we need to change XMODEM to use command as `lsx` that needs to changed it in this screen.
 
 ![File transfer protocols](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/minicom_3.png)
 
-* `Serial port setup`: This is the place where we specify our Serial Device (which we obtained in Step 5 above). The baud rate should be 115200 (default)
+* `Serial port setup`: This is the option where we should specify the Serial Device (which we obtained in Step 6 above). The baud rate should be 115200 (default)
 
 ![Serial port setup](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/minicom4.png)
 
-* `Save the Setup as df1`: Save our configuration, so that next time the settings are saved
+* `Save the Setup as df1`: Save the configuration.
 
 ![Save the Setup as df1](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/minicom_5.png)
 
@@ -146,43 +146,43 @@ Below are the things that needs to be configured before we can flash the device:
 
 <br/>
 #### Step 8:
-Now press `1` on the keyboard, you should see something like below, the upload connection is established to the USB device:
+Now press `1` on the keyboard, we should see something like below, the upload connection is established to the USB device:
 
 ![1](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/minicom6.png)
 
 <br/>
 #### Step 9:
-Now press `control` and `a` together, leave it and press `z` on your keyboard, this should open up the options and you can `s` is used for sending file to the device (on MAC OS, META key needs to be mapped to OPTIONS key which can be done from terminal > keyboard preferences).
+Now press `control` and `a` together, leave it and press `z` on the keyboard, this should open up the available options. `s` is used for sending file to the device (on MAC OS, META key needs to be mapped to OPTIONS key which can be done from terminal > keyboard preferences).
 
 ![control+a](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/minicom7a.png)
 
 <br/>
 #### Step 10:
-Press `s`, you should see options like below:
+Press `s`, now we should see options like below:
 
 ![s](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/minicom7b.png)
 
 <br/>
 #### Step 11:
-We need to choose `xmodem` protocol. Use keyboard arrow to navigate to `xmodem` and hit `return` on your keyboard. This should open up a dialog inside terminal showing all the files available inside the directory which we had configured in Step 6 (under 1).
+We need to choose `xmodem` protocol. Use keyboard arrow to navigate to `xmodem` and hit `return` on the keyboard. This should open up a dialog box inside terminal showing all the files available that are inside the directory that was configured in Step 7 `Filenames and paths`.
 
 ![files](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/minicom7c.png)
 
 <br/>
 #### Step 12:
 Using keyboard arrow key navigate to the firmware file and hit space bar to choose that file, followed by return. This should start the upload
-process and you should see something like:
+process. Once completed we should see something like:
 
 ![upload](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/minicom7d.png)
 
 <br/>
 #### Step 13:
-Now disconnect [SonOff Zigbee dongle plus E](https://sonoff.tech/product/gateway-and-sensors/sonoff-zigbee-3-0-usb-dongle-plus-e/){:target="_blank"} from your computer
+Now disconnect [SonOff Zigbee dongle plus E](https://sonoff.tech/product/gateway-and-sensors/sonoff-zigbee-3-0-usb-dongle-plus-e/){:target="_blank"} from the computer
 
 <br/>
 #### Step 14:
-Screw back the case and plug it into any USB outlet with 5V DC (minimum 1Amp current). You have the router ready in pairing mode.
+Screw back the case and plug it into any USB outlet with 5V DC (minimum 1Amp current). The router should be in pairing mode.
 
 <br/>
 #### Step 15:
-Use Homeassistant or zigbee2mqtt or whatever software you use to pair the new router with your zigbee coordinator
+Using Homeassistant or zigbee2mqtt we can pair the new router with the zigbee coordinator
