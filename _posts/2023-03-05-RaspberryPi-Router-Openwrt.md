@@ -1,4 +1,6 @@
-This project started with the need for having an view into how much bandwidth each device on the home network is consuming. I currently have an old Netgear modem-router combo that doesn't support custom firmwares and it doesn't provide the insights that I'm looking for out of the box. I tried finding for other add-on applications which can be used for my purpose and was blown away with the capabilities [openwrt](https://openwrt.org/){:target="_blank"} provides. However, the initial problem still remained - it wasn't compatible with my existing modem-router and I didn't want to upgrade. [Raspberry Pi](https://en.wikipedia.org/wiki/Raspberry_Pi){:target="_blank"} came to the rescue. 
+This project started with the need for having an view into how much bandwidth each device on the home network is consuming. I currently have an old Netgear modem-router combo that doesn't support custom firmwares and it doesn't provide the insights that I'm looking for out of the box. 
+
+I tried finding for other add-on applications which can be used for my purpose and was blown away with the capabilities [openwrt](https://openwrt.org/){:target="_blank"} provides. However, the initial problem still remained - it wasn't compatible with my existing modem-router and I didn't want to upgrade. [Raspberry Pi](https://en.wikipedia.org/wiki/Raspberry_Pi){:target="_blank"} came to the rescue. 
 Currently for my home network I have a [Raspberry Pi](https://en.wikipedia.org/wiki/Raspberry_Pi){:target="_blank"} acting as router running openwrt (architecture below). There is no compormise in the internet speed with [Raspberry Pi](https://en.wikipedia.org/wiki/Raspberry_Pi){:target="_blank"} running [openwrt](https://openwrt.org/){:target="_blank"}. 
 I have listed the hardware, sofware, my current setup along with details on how to configure [Raspberry Pi](https://en.wikipedia.org/wiki/Raspberry_Pi){:target="_blank"} as a router running openwrt. 
 
@@ -34,10 +36,10 @@ Step 2: Before downloading the firmware, we will add few more packages that we w
 ```
 kmod-mii kmod-crypto-sha256 kmod-usb-net-cdc-ether kmod-usb-net-cdc-ncm kmod-usb-net kmod-usb-net-asix-ax88179 luci
 ```
-![customize firmware](https://raw.githubusercontent.com/gmrock/website/main/media/Wiring_Drawings.png)
+![customize firmware](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/step2.png)
 
 Step 3: After adding the additional package, click on `REQUEST BUILD` (it takes few seconds to get custom build ready). Now, download the firmware by choosing `FACTORY (SQUASHFS)` option. This will download *.img.gz file. Unzip the file, and flash the image to the microsd card using [etcher](https://etcher.download){:target="_blank"}. Insert the microsd card in [Raspberry Pi](https://en.wikipedia.org/wiki/Raspberry_Pi){:target="_blank"}, connect the external LAN dongle to USB3 port and power it ON.
-![customize firmware](https://raw.githubusercontent.com/gmrock/website/main/media/Wiring_Drawings.png)
+![customize firmware](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/Step3.png)
 
 
 Step 4: After turning on the [Raspberry Pi](https://en.wikipedia.org/wiki/Raspberry_Pi){:target="_blank"}, connect an ethernet cable to your laptop and the other end to [Raspberry Pi's](https://en.wikipedia.org/wiki/Raspberry_Pi){:target="_blank"} onboard LAN port.
@@ -112,7 +114,7 @@ Save and close the file and reboot using below command
 
 ```
 reboot
-``
+```
 
 Step 9: Now unplug the LAN cable from your laptop and plug that to home modem-router's LAN port. So the connection will be from home modem-router to raspberry pi's onboard LAN port which is running openwrt.
 
@@ -171,12 +173,12 @@ Step 17: These can be installed from the software manager from within openwrt. F
 - System > Software and click on `Update lists...`
 - afer the list has been updated, search for package named `bandwidthd-sqlite` and install it
 - during installation if there are some errors, it will be due to missing dependent packages. Search for the package which caused the installation to fail and search for that package in the similar way done above and install them. Then again try installing `bandwidthd-sqlite`
-![installting bandwidthd](https://raw.githubusercontent.com/gmrock/website/main/media/Wiring_Drawings.png)
+![installting bandwidthd](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/bandwidthd.png)
 - After installation, the UI for  bandwidthd is accessible here - `http://192.168.0.111/bandwidthd`(this is the IP address which was set in Step 8)
-![bandwidthd UI](https://raw.githubusercontent.com/gmrock/website/main/media/Wiring_Drawings.png)
+![bandwidthd UI](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/bandwidth_ui.png)
 
 - Similarly to install [Netlink Bandwidth Monitor](https://openwrt.org/docs/guide-user/services/network_monitoring/bwmon){:target="_blank"}, search for the package named `luci-app-nlbwmon` and install it. After installation this will be visible under Services > Bandwidth Monitor
-![bandwidth monitor UI](https://raw.githubusercontent.com/gmrock/website/main/media/Wiring_Drawings.png)
+![bandwidth monitor UI](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/bandwidthMonitor.png)
 
 
 #### Other useful packages (can be installed the same way we installed the above packages):
