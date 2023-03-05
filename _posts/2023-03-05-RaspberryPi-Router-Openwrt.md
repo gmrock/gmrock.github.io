@@ -86,7 +86,7 @@ This is how the final file will look like:
 Save and close the file.
 
 
-Step 8: We will change the default IP address to 192.168.0.111 (from 192.168.1.1). I'm doing this because my current modem-router's IP address is 192.168.0.1. This way I will be able to access the openwrt from my current network for configuration. We also specify the DNS and home gateway (current modem-router's) IP address. This is done by running the below commands and making the following changes to - `/etc/config/network` file.
+Step 8: We will change the default IP address to 192.168.0.2 (from 192.168.1.1). I'm doing this because my current modem-router's IP address is 192.168.0.1. This way I will be able to access the openwrt from my current network for configuration. We also specify the DNS and home gateway (current modem-router's) IP address. This is done by running the below commands and making the following changes to - `/etc/config/network` file.
 
 ```
 vi /etc/config/network
@@ -95,10 +95,10 @@ vi /etc/config/network
 Change the `option ipaddr` under `config interface 'lan'` to the new static IP address (default - 192.168.1.1)
 
 ```
-option ipaddr '192.168.0.111'
+option ipaddr '192.168.0.2'
 ```
 
-Add below lines to specify the DNS(using google's DNS) and home gateway (current modem-router's) IP address.
+Add below lines to specify the DNS(using google's DNS) and home gateway (current modem-router's) IP address under `config interface 'lan'`.
 
 ```
 option dns '8.8.8.8'
@@ -116,12 +116,16 @@ Save and close the file and reboot using below command
 reboot
 ```
 
-Step 9: Now unplug the LAN cable from your laptop and plug that to home modem-router's LAN port. So the connection will be from home modem-router to raspberry pi's onboard LAN port which is running openwrt.
+Step 9: Now unplug the LAN cable from your laptop and plug that to access point's LAN port. So the connection will be from access point's LAN port to raspberry pi's onboard LAN port which is running openwrt. Please note there should be a LAN cable going from modem-router's lan port to the access point's Internet port (which is the current setup). So the connections will be:
+```
+modem-router (lan port 1) --> LAN cable --> Access point (internet port - the usual setup) -- internet will be working as-is
+access point (lan port 1 i.e. ethernet port) --> LAN cable --> Raspberry pi (onboard LAN port) -- new connection this step
+```
 
 Step 10: Turn on the WIFI on the laptop and open the below address in the browser. This should open up the openwrt's UI (use root as username and the password which was configured in step 6 above).
 
 ```
-http://192.168.0.111
+http://192.168.0.2
 ```
 
 Step 11: Now we will add a new interface for the external ethernet dongle which we are using. For that navigate to:
@@ -140,25 +144,35 @@ In the firewall settings change it to `wan`
 
 Save the interface and save and apply. So the external LAN dongle is WAN i.e. it will be used to connect to modem-router and the internal LAN port will be used to connect to access point or switch or to computer to access internet.
 
-Step 12: Now remove the LAN cable from the raspberry pi's onboard LAN port and connect that to external USB LAN dongle. So the connection will be - From modem-router TO external USB LAN dongle that is connected to Raspberry pi. We did this because, in Step 11 above we configured the external USB LAN dongle as wan (Wide Area Newtwork). wan needs to be connected to the modem-router/gateway.
+Step 12: Power OFF the raspberry pi. Keep the above LAN connection as is i.e. from Raspberry Pi's onboard LAN port to access point's LAN port (done in Step 9). Now connect another LAN cable from home modem-router's LAN port to Raspberry Pi's external USB LAN dongle. So the connection will be - From modem-router TO external USB LAN dongle that is connected to Raspberry pi. We did this because, in Step 11 above we configured the external USB LAN dongle as wan (Wide Area Newtwork). wan needs to be connected to the modem-router/gateway. So the connections will be:
+```
+modem-router (lan port 1) --> LAN cable --> Access point (internet port - the usual setup) -- internet will be working as-is
+access point (lan port 1 i.e. ethernet port --> LAN cable --> Raspberry pi (onboard LAN port) -- done in Step 9
+modem-router (lan port 2) --> LAN cable --> Raspberry pi (external usb to lan port) -- new connection this step
+```
 
 Step 13: Now we should see both the interfaces will have IP address
 ![IP address for both interface](https://raw.githubusercontent.com/gmrock/website/main/media/Wiring_Drawings.png)
 
 Step 14: Now we will revert some of the changes we did in Step 7. 
 
-Remove below from `/etc/config/dhcp` file. 
+**Remove** below from `/etc/config/dhcp` file. 
 ```
 option ignore '1'
 ``` 
 
-Remove below from `/etc/config/network` file (these were added under lan, these are needed under wan)
+**Remove** below from `/etc/config/network` file (these were added under lan, these are needed under wan)
 ```
 option dns '8.8.8.8'
 option gateway '192.168.0.1'
 ```
 
-Step 14: Connect LAN cable from onboard Raspberry pi's LAN port to access point.
+Step 14: Connect LAN cable from onboard Raspberry pi's LAN port to access point's `Internet` port. So the connection now will be:
+```
+modem-router (lan port 1 or 2) --> LAN cable --> Raspberry pi (external usb to lan port)
+raspberry pi (oboard LAN port) --> LAN cable --> access point (internet port)
+```
+The connection is what we see in the architecure diagram.
 
 Step 15: All your devices will be connected automatically because we didn't do any changes to access point
 
