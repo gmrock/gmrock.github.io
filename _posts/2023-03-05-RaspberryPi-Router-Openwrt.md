@@ -49,14 +49,14 @@ Step 5: Disconnect WIFI on your laptop (as we will connecting to the LAN connect
 ```
 ssh root@192.168.1.1
 ```
-![ssh openwrt](https://raw.githubusercontent.com/gmrock/website/main/media/Wiring_Drawings.png)
+![ssh openwrt](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/step5.png)
 
 
 Step 6: Add a password by running the below command
 ```
 passwd
 ```
-![password change](https://raw.githubusercontent.com/gmrock/website/main/media/Wiring_Drawings.png)
+![password change](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/step6.png)
 
 
 
@@ -81,7 +81,47 @@ option limit '150'
 
 This is how the final file will look like:
 ```
+root@OpenWrt:~# cat /etc/config/dhcp 
 
+config dnsmasq
+	option domainneeded '1'
+	option boguspriv '1'
+	option filterwin2k '0'
+	option localise_queries '1'
+	option rebind_protection '1'
+	option rebind_localhost '1'
+	option local '/lan/'
+	option domain 'lan'
+	option expandhosts '1'
+	option nonegcache '0'
+	option authoritative '1'
+	option readethers '1'
+	option leasefile '/tmp/dhcp.leases'
+	option resolvfile '/tmp/resolv.conf.d/resolv.conf.auto'
+	option nonwildcard '1'
+	option localservice '1'
+	option ednspacket_max '1232'
+
+config dhcp 'lan'
+	option interface 'lan'
+	option leasetime '12h'
+	option dhcpv4 'server'
+	option dhcpv6 'server'
+	option ra 'server'
+	option ra_slaac '1'
+	list ra_flags 'managed-config'
+	list ra_flags 'other-config'
+	option ignore '1'
+
+config dhcp 'wan'
+	option interface 'wan'
+	option ignore '1'
+
+config odhcpd 'odhcpd'
+	option maindhcp '0'
+	option leasefile '/tmp/hosts/odhcpd'
+	option leasetrigger '/usr/sbin/odhcpd-update'
+	option loglevel '4'
 ```
 Save and close the file.
 
@@ -107,7 +147,30 @@ option gateway '192.168.0.1'
 
 This is how the final file will look like:
 ```
+root@OpenWrt:~# cat /etc/config/network 
 
+config interface 'loopback'
+	option device 'lo'
+	option proto 'static'
+	option ipaddr '127.0.0.1'
+	option netmask '255.0.0.0'
+
+config globals 'globals'
+	option ula_prefix 'fd85:6aba:494a::/48'
+
+config device
+	option name 'br-lan'
+	option type 'bridge'
+	list ports 'eth0'
+
+config interface 'lan'
+	option device 'br-lan'
+	option proto 'static'
+	option ipaddr '192.168.0.2'
+	option netmask '255.255.255.0'
+	option ip6assign '60'
+	option dns '8.8.8.8'
+	option gateway '192.168.0.1'
 ```
 
 Save and close the file and reboot using below command
@@ -133,14 +196,14 @@ Step 11: Now we will add a new interface for the external ethernet dongle which 
 ```
 Network > Interfaces > Add new interface
 ```
-![Interface page](https://raw.githubusercontent.com/gmrock/website/main/media/Wiring_Drawings.png)
+![Interface page](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/step11_a.png)
 
 Name the interface `wan` and protocol as `DHCP client` and device as `eth1`
-![new interface config](https://raw.githubusercontent.com/gmrock/website/main/media/Wiring_Drawings.png)
+![new interface config](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/step11_b.png)
 
 
-In the firewall settings change it to `wan`
-![wan firewall](https://raw.githubusercontent.com/gmrock/website/main/media/Wiring_Drawings.png)
+In the firewall settings change it to `wan` (might be there by default).
+![wan firewall](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/step11_c.png)
 
 Save the interface and save and apply. So the external LAN dongle is WAN i.e. it will be used to connect to modem-router and the internal LAN port will be used to connect to access point or switch or to computer to access internet.
 
@@ -152,7 +215,7 @@ modem-router (lan port 2) --> LAN cable --> Raspberry pi (external usb to lan po
 ```
 
 Step 13: Power ON the raspberry pi. Now we should see both the interfaces will have IP address
-![IP address for both interface](https://raw.githubusercontent.com/gmrock/website/main/media/Wiring_Drawings.png)
+![IP address for both interface](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/step13.png)
 
 Step 14: Now we will revert some of the changes we did in Step 7. 
 
