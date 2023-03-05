@@ -151,7 +151,7 @@ access point (lan port 1 i.e. ethernet port --> LAN cable --> Raspberry pi (onbo
 modem-router (lan port 2) --> LAN cable --> Raspberry pi (external usb to lan port) -- new connection this step
 ```
 
-Step 13: Now we should see both the interfaces will have IP address
+Step 13: Power ON the raspberry pi. Now we should see both the interfaces will have IP address
 ![IP address for both interface](https://raw.githubusercontent.com/gmrock/website/main/media/Wiring_Drawings.png)
 
 Step 14: Now we will revert some of the changes we did in Step 7. 
@@ -167,12 +167,12 @@ option dns '8.8.8.8'
 option gateway '192.168.0.1'
 ```
 
-Step 14: Connect LAN cable from onboard Raspberry pi's LAN port to access point's `Internet` port. So the connection now will be:
+Step 14: Power OFF raspbery pi. Remove the LAN cable from modem-router's LAN port to access point's internet port. Now, connect LAN cable from onboard Raspberry pi's LAN port to access point's `Internet` port. So the connection now will be:
 ```
 modem-router (lan port 1 or 2) --> LAN cable --> Raspberry pi (external usb to lan port)
 raspberry pi (oboard LAN port) --> LAN cable --> access point (internet port)
 ```
-The connection is what we see in the architecure diagram.
+The connection is what we see in the architecure diagram. Power ON the raspberry Pi. Wait for 5minutes.
 
 Step 15: All your devices will be connected automatically because we didn't do any changes to access point
 
