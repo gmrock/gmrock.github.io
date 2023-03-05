@@ -23,7 +23,7 @@ I have listed the hardware, sofware, my current setup along with details on how 
 <hr/>
 
 #### ARCHITECTURE:
-![Architecture](https://raw.githubusercontent.com/gmrock/website/main/media/HomeAutomation_Architecture_Diagram.png)
+![Architecture](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/network.drawio.png)
 
 <hr/>
 
