@@ -29,22 +29,27 @@ I have listed the hardware, sofware, my current setup along with details on how 
 
 #### STEPS:
 
-Step 1: Navigate to [openwrt firmware selector page](https://firmware-selector.openwrt.org/){:target="_blank"} and search for `Raspberry Pi`. Choose the model which you will be using. 
+#### Step 1:
+Navigate to [openwrt firmware selector page](https://firmware-selector.openwrt.org/){:target="_blank"} and search for `Raspberry Pi`. Choose the model which you will be using. 
 
-Step 2: Before downloading the firmware, we will add few more packages that we want to be included in the firmware (this can be done later too after the entire setup). The additional package is the driver for [TP-Link USB-Ethernet-Adapter-Gigabit-Switch](https://www.amazon.com/USB-Ethernet-Adapter-Gigabit-Switch/dp/B09GRL3VCN){:target="_blank"}. We will using this as the 2nd LAN port for [Raspberry Pi](https://en.wikipedia.org/wiki/Raspberry_Pi){:target="_blank"} (as it has only 1 LAN port on the board). Expand `Customize installed packages and/or first boot script` and under `Installed Packages` add the below line towards the end.
+#### Step 2:
+Before downloading the firmware, we will add few more packages that we want to be included in the firmware (this can be done later too after the entire setup). The additional package is the driver for [TP-Link USB-Ethernet-Adapter-Gigabit-Switch](https://www.amazon.com/USB-Ethernet-Adapter-Gigabit-Switch/dp/B09GRL3VCN){:target="_blank"}. We will using this as the 2nd LAN port for [Raspberry Pi](https://en.wikipedia.org/wiki/Raspberry_Pi){:target="_blank"} (as it has only 1 LAN port on the board). Expand `Customize installed packages and/or first boot script` and under `Installed Packages` add the below line towards the end.
 
 ```
 kmod-mii kmod-crypto-sha256 kmod-usb-net-cdc-ether kmod-usb-net-cdc-ncm kmod-usb-net kmod-usb-net-asix-ax88179 luci
 ```
 ![customize firmware](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/step2.png)
 
-Step 3: After adding the additional package, click on `REQUEST BUILD` (it takes few seconds to get custom build ready). Now, download the firmware by choosing `FACTORY (SQUASHFS)` option. This will download *.img.gz file. Unzip the file, and flash the image to the microsd card using [etcher](https://etcher.download){:target="_blank"}. Insert the microsd card in [Raspberry Pi](https://en.wikipedia.org/wiki/Raspberry_Pi){:target="_blank"}, connect the external LAN dongle to USB3 port and power it ON.
+#### Step 3:
+After adding the additional package, click on `REQUEST BUILD` (it takes few seconds to get custom build ready). Now, download the firmware by choosing `FACTORY (SQUASHFS)` option. This will download *.img.gz file. Unzip the file, and flash the image to the microsd card using [etcher](https://etcher.download){:target="_blank"}. Insert the microsd card in [Raspberry Pi](https://en.wikipedia.org/wiki/Raspberry_Pi){:target="_blank"}, connect the external LAN dongle to USB3 port and power it ON.
 ![customize firmware](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/Step3.png)
 
 
-Step 4: After turning on the [Raspberry Pi](https://en.wikipedia.org/wiki/Raspberry_Pi){:target="_blank"}, connect an ethernet cable to your laptop and the other end to [Raspberry Pi's](https://en.wikipedia.org/wiki/Raspberry_Pi){:target="_blank"} onboard LAN port.
+#### Step 4:
+After turning on the [Raspberry Pi](https://en.wikipedia.org/wiki/Raspberry_Pi){:target="_blank"}, connect an ethernet cable to your laptop and the other end to [Raspberry Pi's](https://en.wikipedia.org/wiki/Raspberry_Pi){:target="_blank"} onboard LAN port.
 
-Step 5: Disconnect WIFI on your laptop (as we will connecting to the LAN connected [Raspberry Pi](https://en.wikipedia.org/wiki/Raspberry_Pi){:target="_blank"}). We will SSH into the [Raspberry Pi](https://en.wikipedia.org/wiki/Raspberry_Pi){:target="_blank"} which is now running [openwrt](https://firmware-selector.openwrt.org/){:target="_blank"}. Open up a terminal(console) and enter the below command (default username: `root`, default password is empty and default IP address is `192.168.1.1`).
+#### Step 5:
+Disconnect WIFI on your laptop (as we will connecting to the LAN connected [Raspberry Pi](https://en.wikipedia.org/wiki/Raspberry_Pi){:target="_blank"}). We will SSH into the [Raspberry Pi](https://en.wikipedia.org/wiki/Raspberry_Pi){:target="_blank"} which is now running [openwrt](https://firmware-selector.openwrt.org/){:target="_blank"}. Open up a terminal(console) and enter the below command (default username: `root`, default password is empty and default IP address is `192.168.1.1`).
 
 ```
 ssh root@192.168.1.1
@@ -52,15 +57,16 @@ ssh root@192.168.1.1
 ![ssh openwrt](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/step5.png)
 
 
-Step 6: Add a password by running the below command
+#### Step 6:
+Add a password by running the below command
 ```
 passwd
 ```
 ![password change](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/step6.png)
 
 
-
-Step 7: We will turn off DHCP for lan interface and remove unwanted parameters. This is done by running the below commands and making the following changes to - `/etc/config/dhcp` file.
+#### Step 7:
+We will turn off DHCP for lan interface and remove unwanted parameters. This is done by running the below commands and making the following changes to - `/etc/config/dhcp` file.
 
 ```
 vi /etc/config/dhcp
@@ -126,7 +132,8 @@ config odhcpd 'odhcpd'
 Save and close the file.
 
 
-Step 8: We will change the default IP address to 192.168.0.2 (from 192.168.1.1). I'm doing this because my current modem-router's IP address is 192.168.0.1. This way I will be able to access the openwrt from my current network for configuration. We also specify the DNS and home gateway (current modem-router's) IP address. This is done by running the below commands and making the following changes to - `/etc/config/network` file.
+#### Step 8:
+We will change the default IP address to 192.168.0.2 (from 192.168.1.1). I'm doing this because my current modem-router's IP address is 192.168.0.1. This way I will be able to access the openwrt from my current network for configuration. We also specify the DNS and home gateway (current modem-router's) IP address. This is done by running the below commands and making the following changes to - `/etc/config/network` file.
 
 ```
 vi /etc/config/network
@@ -179,19 +186,22 @@ Save and close the file and reboot using below command
 reboot
 ```
 
-Step 9: Now unplug the LAN cable from your laptop and plug that to access point's LAN port. So the connection will be from access point's LAN port to raspberry pi's onboard LAN port which is running openwrt. Please note there should be a LAN cable going from modem-router's lan port to the access point's Internet port (which is the current setup). So the connections will be:
+#### Step 9:
+Now unplug the LAN cable from your laptop and plug that to access point's LAN port. So the connection will be from access point's LAN port to raspberry pi's onboard LAN port which is running openwrt. Please note there should be a LAN cable going from modem-router's lan port to the access point's Internet port (which is the current setup). So the connections will be:
 ```
 modem-router (lan port 1) --> LAN cable --> Access point (internet port - the usual setup) -- internet will be working as-is
 access point (lan port 1 i.e. ethernet port) --> LAN cable --> Raspberry pi (onboard LAN port) -- new connection this step
 ```
 
-Step 10: Turn on the WIFI on the laptop and open the below address in the browser. This should open up the openwrt's UI (use root as username and the password which was configured in step 6 above).
+#### Step 10:
+Turn on the WIFI on the laptop and open the below address in the browser. This should open up the openwrt's UI (use root as username and the password which was configured in step 6 above).
 
 ```
 http://192.168.0.2
 ```
 
-Step 11: Now we will add a new interface for the external ethernet dongle which we are using. For that navigate to:
+#### Step 11:
+Now we will add a new interface for the external ethernet dongle which we are using. For that navigate to:
 
 ```
 Network > Interfaces > Add new interface
@@ -251,7 +261,7 @@ Step 17: These can be installed from the software manager from within openwrt. F
 - afer the list has been updated, search for package named `bandwidthd-sqlite` and install it
 - during installation if there are some errors, it will be due to missing dependent packages. Search for the package which caused the installation to fail and search for that package in the similar way done above and install them. Then again try installing `bandwidthd-sqlite`
 ![installting bandwidthd](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/bandwidthd.png)
-- After installation, the UI for  bandwidthd is accessible here - `http://192.168.0.111/bandwidthd`(this is the IP address which was set in Step 8)
+- After installation, the UI for  bandwidthd is accessible here - `http://192.168.0.2/bandwidthd`(this is the IP address which was set in Step 8)
 ![bandwidthd UI](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/bandwidth_ui.png)
 
 - Similarly to install [Netlink Bandwidth Monitor](https://openwrt.org/docs/guide-user/services/network_monitoring/bwmon){:target="_blank"}, search for the package named `luci-app-nlbwmon` and install it. After installation this will be visible under Services > Bandwidth Monitor
@@ -278,11 +288,6 @@ When someone on your network sends a large file, a lot of packets get sent all a
 Certain routers have smart algorithms (usually called "SQM") that ensure that time-sensitive packets flowing through the router don’t get delayed, even when large files are being downloaded or uploaded. Continuing with the liquid analogy, these routers offer a way to admit just the right amount of water into the sink so the drain pipe is always full, but a new spoonful of oil will drain out immediately.
 
 Please visit [the source](https://www.waveform.com/tools/bufferbloat){:target="_blank"} to read more about bufferbloat and also do a bufferbloat test on your network.
-
-<br/>
-
-##### `RpiS2GlassDoorSensor`:
-This is a running a java application (jar) which monitors the state of the reed switches installed on doors. I'm also using the reed switches to check on the position of the door knob. Whenever there is any state change the application will relay the state to a cloud hosted rabbitmq (cloudamqp). The action to be executed on the state change is handled by _`MasterRaspberryPi`_. I'm using this library for interacting with the GPIO pins on the raspberry pi - [Pi4j](https://pi4j.com/){:target="_blank"} 
 
 <br/>
 
