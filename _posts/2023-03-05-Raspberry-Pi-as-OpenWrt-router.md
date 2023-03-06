@@ -194,7 +194,7 @@ access point (lan port 1 i.e. ethernet port) --> LAN cable --> Raspberry pi (onb
 ```
 
 #### Step 10:
-Turn on the WIFI on the laptop and open the below address in the browser. This should open up the openwrt's UI (use root as username and the password which was configured in step 6 above).
+Turn on the WIFI on the laptop and open the below address in the browser. This should open up the openwrt's UI (use root as username and the password which was configured in Step 6).
 
 ```
 http://192.168.0.2
