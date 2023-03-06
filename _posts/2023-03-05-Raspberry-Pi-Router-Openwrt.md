@@ -269,7 +269,7 @@ Step 17: These can be installed from the software manager from within openwrt. F
 
 
 #### Other useful packages (can be installed the same way we installed the above packages):
-- [Adblock](https://openwrt.org/docs/guide-user/services/ad-blocking){:target="_blank"} - this is used for blocking ads. I was using pihole for a long time and recently switched to adblock which can be bundled with openwrt. You will need to enable reporting after installing the package to view reports (you will see the options after adblock is installed on the UI).
+- [Adblock](https://openwrt.org/docs/guide-user/services/ad-blocking){:target="_blank"} - this is used for blocking ads. I was using pihole for a long time and recently switched to adblock which can be bundled with openwrt. You will need to enable reporting after installing the package to view reports (you will see the options after adblock is installed on the UI). Will need to install this package along with enabling reporting - `tcpdump` or `tcpdump-mini`.
 - [SQM QOS](https://openwrt.org/docs/guide-user/network/traffic-shaping/sqm){:target="_blank"} - this is used for prioritzing traffic and help reduce bufferbloat. 
 
 
