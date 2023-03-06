@@ -252,7 +252,7 @@ raspberry pi (oboard LAN port) --> LAN cable --> access point (internet port)
 The connection is what we see in the architecure diagram. Power ON the raspberry Pi. Wait for 5minutes.
 
 #### Step 16:
-All your devices will be connected automatically because we didn't do any changes to access point
+All the devices will be connected automatically because we didn't do any changes to access point
 
 
 #### Step 17:
@@ -296,8 +296,10 @@ Instead of water and oil, networks have different flows of packets. Your router 
 When someone on your network sends a large file, a lot of packets get sent all at once. The router temporarily "buffers those packets", holding them before they’re sent. Any new data packets get stuck behind the existing queue of buffered packets. They will arrive at the destination much later than if the router’s buffers hadn't been full.
 Certain routers have smart algorithms (usually called "SQM") that ensure that time-sensitive packets flowing through the router don’t get delayed, even when large files are being downloaded or uploaded. Continuing with the liquid analogy, these routers offer a way to admit just the right amount of water into the sink so the drain pipe is always full, but a new spoonful of oil will drain out immediately.
 
-Please visit [the source](https://www.waveform.com/tools/bufferbloat){:target="_blank"} to read more about bufferbloat and also do a bufferbloat test on your network.
 
+References: 
+- This [video](https://www.youtube.com/watch?v=_pBf2hGqXL8){:target="_blank"} was helpful in setting up raspberry pi as openwrt.
+- Check this [article](https://www.waveform.com/tools/bufferbloat){:target="_blank"} to read more about bufferbloat and also do a bufferbloat test on your network.
 <br/>
 
 
