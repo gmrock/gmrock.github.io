@@ -33,7 +33,7 @@ I have listed the hardware, sofware, my current setup along with details on how 
 Navigate to [openwrt firmware selector page](https://firmware-selector.openwrt.org/){:target="_blank"} and search for `Raspberry Pi`. Choose the model which you will be using. 
 
 #### Step 2:
-Before downloading the firmware, we will add few more packages that we want to be included in the firmware (this can be done later too after the entire setup). The additional package is the driver for [TP-Link USB-Ethernet-Adapter-Gigabit-Switch](https://www.amazon.com/USB-Ethernet-Adapter-Gigabit-Switch/dp/B09GRL3VCN){:target="_blank"}. We will using this as the 2nd LAN port for [Raspberry Pi](https://en.wikipedia.org/wiki/Raspberry_Pi){:target="_blank"} (as it has only 1 LAN port on the board). Expand `Customize installed packages and/or first boot script` and under `Installed Packages` add the below line towards the end.
+Before downloading the firmware, we will add few more packages that we want to be included in the firmware (this can be done later too after the entire setup). The additional package is the driver for [TP-Link USB-Ethernet-Adapter-Gigabit-Switch](https://www.amazon.com/USB-Ethernet-Adapter-Gigabit-Switch/dp/B09GRL3VCN){:target="_blank"}. We will using this as the 2nd LAN port for Raspberry Pi (as it has only 1 LAN port on the board). Expand `Customize installed packages and/or first boot script` and under `Installed Packages` add the below line towards the end.
 
 ```
 kmod-mii kmod-crypto-sha256 kmod-usb-net-cdc-ether kmod-usb-net-cdc-ncm kmod-usb-net kmod-usb-net-asix-ax88179 luci
@@ -41,15 +41,15 @@ kmod-mii kmod-crypto-sha256 kmod-usb-net-cdc-ether kmod-usb-net-cdc-ncm kmod-usb
 ![customize firmware](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/step2.png)
 
 #### Step 3:
-After adding the additional package, click on `REQUEST BUILD` (it takes few seconds to get custom build ready). Now, download the firmware by choosing `FACTORY (SQUASHFS)` option. This will download *.img.gz file. Unzip the file, and flash the image to the microsd card using [etcher](https://etcher.download){:target="_blank"}. Insert the microsd card in [Raspberry Pi](https://en.wikipedia.org/wiki/Raspberry_Pi){:target="_blank"}, connect the external LAN dongle to USB3 port and power it ON.
+After adding the additional package, click on `REQUEST BUILD` (it takes few seconds to get custom build ready). Now, download the firmware by choosing `FACTORY (SQUASHFS)` option. This will download *.img.gz file. Unzip the file, and flash the image to the microsd card using [etcher](https://etcher.download){:target="_blank"}. Insert the microsd card in Raspberry Pi, connect the external LAN dongle to USB3 port and power it ON.
 ![customize firmware](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/Step3.png)
 
 
 #### Step 4:
-After turning on the [Raspberry Pi](https://en.wikipedia.org/wiki/Raspberry_Pi){:target="_blank"}, connect an ethernet cable to your laptop and the other end to [Raspberry Pi's](https://en.wikipedia.org/wiki/Raspberry_Pi){:target="_blank"} onboard LAN port.
+After turning on the Raspberry Pi, connect an ethernet cable to your laptop and the other end to Raspberry Pi's onboard LAN port.
 
 #### Step 5:
-Disconnect WIFI on your laptop (as we will connecting to the LAN connected [Raspberry Pi](https://en.wikipedia.org/wiki/Raspberry_Pi){:target="_blank"}). We will SSH into the [Raspberry Pi](https://en.wikipedia.org/wiki/Raspberry_Pi){:target="_blank"} which is now running [openwrt](https://firmware-selector.openwrt.org/){:target="_blank"}. Open up a terminal(console) and enter the below command (default username: `root`, default password is empty and default IP address is `192.168.1.1`).
+Disconnect WIFI on your laptop (as we will connecting to the LAN connected Raspberry Pi). We will SSH into the Raspberry Pi which is now running openwrt. Open up a terminal(console) and enter the below command (default username: `root`, default password is empty and default IP address is `192.168.1.1`).
 
 ```
 ssh root@192.168.1.1
@@ -218,7 +218,7 @@ In the firewall settings change it to `wan` (might be there by default).
 Save the interface and save and apply. So the external LAN dongle is WAN i.e. it will be used to connect to modem-router and the internal LAN port will be used to connect to access point or switch or to computer to access internet.
 
 #### Step 12:
-Power OFF the raspberry pi. Keep the above LAN connection as is i.e. from Raspberry Pi's onboard LAN port to access point's LAN port (done in Step 9). Now connect another LAN cable from home modem-router's LAN port to Raspberry Pi's external USB LAN dongle. So the connection will be - From modem-router TO external USB LAN dongle that is connected to Raspberry pi. We did this because, in Step 11 above we configured the external USB LAN dongle as wan (Wide Area Newtwork). wan needs to be connected to the modem-router/gateway. So the connections will be:
+Power OFF the raspberry pi. Keep the above LAN connection as is i.e. from Raspberry Pi's onboard LAN port to access point's LAN port (done in Step 9). Now connect another LAN cable from home modem-router's LAN port to Raspberry Pi's external USB LAN dongle. So the connection will be - From modem-router TO external USB LAN dongle that is connected to Raspberry Pi. We did this because, in Step 11 above we configured the external USB LAN dongle as wan (Wide Area Newtwork). wan needs to be connected to the modem-router/gateway. So the connections will be:
 ```
 modem-router (lan port 1) --> LAN cable --> Access point (internet port - the usual setup) -- internet will be working as-is
 access point (lan port 1 i.e. ethernet port --> LAN cable --> Raspberry pi (onboard LAN port) -- done in Step 9
@@ -244,7 +244,7 @@ option gateway '192.168.0.1'
 ```
 
 #### Step 15:
-Power OFF raspbery pi. Remove the LAN cable from modem-router's LAN port to access point's internet port. Now, connect LAN cable from onboard Raspberry pi's LAN port to access point's `Internet` port. So the connection now will be:
+Power OFF raspbery pi. Remove the LAN cable from modem-router's LAN port to access point's internet port. Now, connect LAN cable from onboard Raspberry Pi's LAN port to access point's `Internet` port. So the connection now will be:
 ```
 modem-router (lan port 1 or 2) --> LAN cable --> Raspberry pi (external usb to lan port)
 raspberry pi (oboard LAN port) --> LAN cable --> access point (internet port)
@@ -296,9 +296,10 @@ Instead of water and oil, networks have different flows of packets. Your router 
 When someone on your network sends a large file, a lot of packets get sent all at once. The router temporarily "buffers those packets", holding them before they’re sent. Any new data packets get stuck behind the existing queue of buffered packets. They will arrive at the destination much later than if the router’s buffers hadn't been full.
 Certain routers have smart algorithms (usually called "SQM") that ensure that time-sensitive packets flowing through the router don’t get delayed, even when large files are being downloaded or uploaded. Continuing with the liquid analogy, these routers offer a way to admit just the right amount of water into the sink so the drain pipe is always full, but a new spoonful of oil will drain out immediately.
 
+<hr/>
 
-References: 
-- This [video](https://www.youtube.com/watch?v=_pBf2hGqXL8){:target="_blank"} was helpful in setting up raspberry pi as openwrt.
+**References:**
+- This [video](https://www.youtube.com/watch?v=_pBf2hGqXL8){:target="_blank"} was helpful in setting up Raspberry Pi as openwrt.
 - Check this [article](https://www.waveform.com/tools/bufferbloat){:target="_blank"} to read more about bufferbloat and also do a bufferbloat test on your network.
 <br/>
 
