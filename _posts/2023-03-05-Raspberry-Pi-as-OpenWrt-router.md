@@ -294,7 +294,7 @@ The router mode, is also called bridge mode in some devices. The goal is to disa
 
 Apparently for some ISPs, the MAC address is registered with the ISP. So any change made to the modem-router will need you to inform them Raspberry Pi's MAC address. Luckily it didn't happen in my case (it just worked). However, after I disabled the router mode, I had to power OFF - modem, Raspberry Pi, access point - waited for few minutes. Restarted - modem,  Raspberry Pi and access point. Then again had to wait for few minutes before it all started working.
 
-If you don't want to call ISP to change the MAC address. You can clone the modem-router combination's MAC address and copy that on the Raspberry Pi. You can spoof MAC address on openwrt by navigating to - Network > Interfaces > Devices > Click on Configure for Choose the WAN interface  > You will have text box to update the MAC address.
+If you don't want to call ISP to change the MAC address. You can clone the modem-router combination's MAC address and copy that on the Raspberry Pi. You can spoof MAC address on openwrt by navigating to - Network > Interfaces > Devices > Click on `Configure` for the WAN interface  > Text box to update the MAC address.
 
 ![MAC address spoof](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/mac.png)
 
