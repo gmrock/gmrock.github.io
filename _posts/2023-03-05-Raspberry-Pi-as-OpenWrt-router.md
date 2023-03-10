@@ -290,13 +290,15 @@ For network stability, would encourage installing [SQM QOS](https://openwrt.org/
 ## ISSUE WITH MY SETUP :
 Initially I had not disabled the router feature on my modem-router combination. This was causing double NAT. There were 2 routers on my network in series. 1st router was in modem-router combination and 2nd router was the Raspberry Pi running openwrt. In my Netgear modem-router (netgear C6250) there is an option to disable router mode. I disabled the router mode. This way I only have 1 router on my network and it's not a double NAT scenario anymore.
 
-The router mode off, is also called bridge mode in some devices. The goal is to disable router functionality in the modem. The architecture (cable connection) all remains the same as before. On the modem-router combination I had, as soon as the router mode was turned OFF, we loose access to the modem-router's admin page. The only way to get it back is to factory reset the modem-router (take note of the modem-router combo's MAC address).
+The router mode, is also called bridge mode in some devices. The goal is to disable router functionality in the modem. The architecture (cable connection) all remains the same as before. On the modem-router combination, as soon as the router mode was turned OFF, I lost access to the modem-router's admin page. The only way to get it back is to factory reset the modem-router.
 
-Apparently for some ISPs, the MAC address is registered with the ISP company. So any change made to the modem-router will need you to inform to the ISP your Raspberry Pi's MAC address. Luckily it didn't happen in my case (it just worked). However, after I disabled the router mode, I had to power OFF - modem, Raspberry Pi, access point - waited for 5mins. Restarted - modem,  Raspberry Pi and access point. Then again had to wait for 5mins before it all started working.
+Apparently for some ISPs, the MAC address is registered with the ISP. So any change made to the modem-router will need you to inform them Raspberry Pi's MAC address. Luckily it didn't happen in my case (it just worked). However, after I disabled the router mode, I had to power OFF - modem, Raspberry Pi, access point - waited for few minutes. Restarted - modem,  Raspberry Pi and access point. Then again had to wait for few minutes before it all started working.
 
 If you don't want to call ISP to change the MAC address. You can clone the modem-router combination's MAC address and copy that on the Raspberry Pi. You can spoof MAC address on openwrt by navigating to - Network > Interfaces > Devices > Click on Configure for Choose the WAN interface  > You will have text box to update the MAC address.
 
-![MAC address spoof](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/bandwidthMonitor.png)
+![MAC address spoof](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/mac.png)
+
+<hr/>
 
 ## GLOSSARY:
 
@@ -313,9 +315,6 @@ Certain routers have smart algorithms (usually called "SQM") that ensure that ti
 
 **Double NAT:**
 Double network address translation, happes when two routers are placed in series in a network. This can happen when a router is connected to another router, or when a modem-router combination device is used in conjunction with another router. When double NAT occurs, it can cause issues with connectivity and network performance. This can result in issues with online gaming, video streaming, and other network-intensive applications.
-
-<hr/>
-
 
 
 
