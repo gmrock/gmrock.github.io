@@ -24,7 +24,7 @@ I have listed the hardware, sofware and my current setup along with details on h
 <hr/>
 
 ## ARCHITECTURE:
-![Architecture](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/network.drawio.png)
+![Architecture](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/network.png)
 
 <hr/>
 
@@ -331,6 +331,8 @@ Now click on Firewall Settings > choose `lan` and now save it.
 The new interface should be visible on UI and if you connect any device (laptop, access point etc) it will get an IP address in the range `10.10.0.x` and that device should also have access to the internet. We will also be able to ping devices connected to eth0 (with range 192.168.0.x) as we have defined `lan` in firewall settings (Step E). I will explore firewall settings in openwrt in my next article.
 ![added](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/final_config.png)
 
+#### Below is the upgraded architecture:
+![Upgraded Architecture](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/upgrade_network.drawio.png)
 <hr/>
 
 ## GLOSSARY:
