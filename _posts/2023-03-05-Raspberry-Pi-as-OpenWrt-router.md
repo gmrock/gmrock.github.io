@@ -300,6 +300,39 @@ If you don't want to call ISP to change the MAC address. You can clone the modem
 
 <hr/>
 
+## SETUP UPGRADE :
+With the above setup (Raspbery Pi acting as router) all the ethernet ports on the Raspbery Pi are used up.
+- External USB 3 to Ethernet port: configured as WAN (eth1)
+- On-board ethernet port: configured as LAN (eth0)
+
+I wanted to add one more ethernet port(eth2) to the router (Raspberry Pi), which I can use for connecting wired device (laptop, or another access point etc). Below are the steps for configuring 1 more external USB 3 to ethernet port:
+
+#### Step A: 
+Connect one more [TP-Link USB-Ethernet-Adapter-Gigabit-Switch](https://www.amazon.com/USB-Ethernet-Adapter-Gigabit-Switch/dp/B09GRL3VCN){:target="_blank"} to USB 3 port on the Raspberry Pi.
+
+#### Step B: 
+Login to the openwrt admin page and navigate to - Network > Interfaces > Add new interface
+![add new interface ](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/add_interface_eth2.png)
+
+#### Step C: 
+Give it any name, say `LAN2`. Protocol will be `Static address` and Device will be `eth2` (the newly added external USB 3 to ethernet port). Provide a static IP address say `10.10.0.1` , subnet mask as `255.255.255.0`. Don't save yet. The LAN (eth0) was also configured as static IP address with IP as `192.168.0.2`. Only WAN (eth1) was configured as DHCP (as it will get IP address from ISP).
+![adding static IP address ](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/stepc.png)
+
+#### Step D:
+Now click on DHCP Server > `Set up DHCP Server`. Leave everything as-is. Don't save yet. Since, we want to connect device on this port, so we need DHCP server enabled for this interface too (just like eth0).
+![enable DHCP server](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/stepd.png)
+
+
+#### Step E:
+Now click on Firewall Settings > choose `lan` and now save it.
+![enable DHCP server](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/stepe.png)
+
+#### Step F:
+The new interface should be visible on UI and if you connect any device (laptop, access point etc) it will get an IP address in the range `10.10.0.x` and that device should also have access to the internet. We will also be able to ping devices connected to eth0 (with range 192.168.0.x) as we have defined `lan` in firewall settings (Step E). I will explore firewall settings in openwrt in my next article.
+![added](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/final_config.png)
+
+<hr/>
+
 ## GLOSSARY:
 
 **Bufferbloat:**
