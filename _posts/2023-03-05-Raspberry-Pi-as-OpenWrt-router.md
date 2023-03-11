@@ -24,7 +24,7 @@ I have listed the hardware, sofware and my current setup along with details on h
 <hr/>
 
 ## ARCHITECTURE:
-![Architecture](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/network.png)
+![Architecture](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/network.drawio.png)
 
 <hr/>
 
@@ -332,7 +332,7 @@ The new interface should be visible on UI and if you connect any device (laptop,
 ![added](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/final_config.png)
 
 #### Below is the upgraded architecture:
-![Upgraded Architecture](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/upgraded_network.png)
+![Upgraded Architecture](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/upgraded_network.drawio.png)
 <hr/>
 
 ## GLOSSARY:
