@@ -287,7 +287,7 @@ For network stability, would encourage installing [SQM QOS](https://openwrt.org/
 
 <hr/>
 
-## ISSUE WITH MY SETUP :
+## ISSUE(resolved) WITH MY SETUP :
 Initially I had not disabled the router feature on my modem-router combination. This was causing double NAT. There were 2 routers on my network in series. 1st router was in modem-router combination and 2nd router was the Raspberry Pi running openwrt. In my Netgear modem-router (netgear C6250) there is an option to disable router mode. I disabled the router mode. This way I only have 1 router on my network and it's not a double NAT scenario anymore.
 
 The router mode, is also called bridge mode in some devices. The goal is to disable router functionality in the modem. The architecture (cable connection) all remains the same as before. On the modem-router combination, as soon as the router mode was turned OFF, I lost access to the modem-router's admin page. The only way to get it back is to factory reset the modem-router.
@@ -300,7 +300,7 @@ If you don't want to call ISP to change the MAC address. You can clone the modem
 
 <hr/>
 
-## SETUP UPGRADE :
+## SETUP UPGRADE(additional LAN port) :
 With the above setup (Raspbery Pi acting as router) all the ethernet ports on the Raspbery Pi are used up.
 - External USB 3 to Ethernet port: configured as WAN (eth1)
 - On-board ethernet port: configured as LAN (eth0)
@@ -332,7 +332,7 @@ The new interface should be visible on UI and if you connect any device (laptop,
 ![added](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/final_config.png)
 
 #### Below is the upgraded architecture:
-![Upgraded Architecture](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/upgrade_network.drawio.png)
+![Upgraded Architecture](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/upgraded_network.png)
 <hr/>
 
 ## GLOSSARY:
