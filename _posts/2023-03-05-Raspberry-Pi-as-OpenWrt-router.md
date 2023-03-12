@@ -1,9 +1,9 @@
 This project started with the need for having a view into how much bandwidth each device on my home network was consuming.
 
-I currently have an old Netgear modem-router combination that doesn't support custom firmwares and it doesn't provide the insights that I'm looking for out of the box.
+I currently have an old Netgear modem-router combination that doesn't support custom firmware and it doesn't provide the insights that I'm looking for out of the box.
 I tried finding for other add-on applications which can be used for my purpose and was impressed with the capabilities [openwrt](https://openwrt.org/){:target="_blank"} provides. However, the initial problem still remained - it wasn't compatible with my existing modem-router and I didn't want to upgrade my current setup. [Raspberry Pi](https://en.wikipedia.org/wiki/Raspberry_Pi){:target="_blank"} came to the rescue. 
 Currently for my home network I have a [Raspberry Pi](https://en.wikipedia.org/wiki/Raspberry_Pi){:target="_blank"} acting as router running openwrt (architecture below). There is no compormise in the internet speed with [Raspberry Pi](https://en.wikipedia.org/wiki/Raspberry_Pi){:target="_blank"} running [openwrt](https://openwrt.org/){:target="_blank"}. 
-I have listed the hardware, sofware and my current setup along with details on how to configure [Raspberry Pi](https://en.wikipedia.org/wiki/Raspberry_Pi){:target="_blank"} as a router running openwrt. 
+I have listed the hardware, software and my current setup along with details on how to configure [Raspberry Pi](https://en.wikipedia.org/wiki/Raspberry_Pi){:target="_blank"} as a router running openwrt. 
 
 
 
