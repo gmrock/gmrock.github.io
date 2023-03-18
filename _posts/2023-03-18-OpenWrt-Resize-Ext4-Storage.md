@@ -2,14 +2,25 @@ When we configured [Raspberry Pi As OpenWrt Router](https://gmrock.github.io/202
 
 This is because openwrt is bundled to work on lower memory footprint devices too. In this article, I have detailed how we can resize the microsd card to utilize the entire capacity for our openwrt setup.
 
+<hr/>
+
+## TABLE OF CONTENTS:
+1. [Hardware](#hardware)
+2. [Software](#software)
+3. [Steps](#steps)
+4. [References](#references)
+
+<hr/>
 
 ## HARDWARE:
-- [USBC/USB2 to microSD card reader](https://www.amazon.com/UGREEN-Reader-Adapter-Portable-Windows/dp/B07D1J88CF/){:target="_blank"}. This is optional. This specific device is compatible with Mac, Windows and Linux.
+- [USBC/USB2 to microSD card reader](https://www.amazon.com/UGREEN-Reader-Adapter-Portable-Windows/dp/B07D1J88CF/){:target="_blank"}. This is optional. This specific device is compatible with Mac, Windows and Linux.  
+[🔝](#table-of-contents)
 
 <hr/>
 
 ## SOFTWARE:
-- [Virtual Box](https://www.virtualbox.org/){:target="_blank"} - To create Ubuntu VM
+- [Virtual Box](https://www.virtualbox.org/){:target="_blank"} - To create Ubuntu VM  
+[🔝](#table-of-contents)
 
 <hr/>
 
@@ -17,7 +28,8 @@ This is because openwrt is bundled to work on lower memory footprint devices too
 Instead of following the `Step 3` from [Raspberry Pi As OpenWrt Router](https://gmrock.github.io/2023/03/05/Raspberry-Pi-as-OpenWrt-router.html){:target="_blank"}. We will execute below steps.
 
 #### Step A:
-After adding the additional package, click on REQUEST BUILD (it takes few seconds to get custom build ready). Now, download the firmware by choosing `FACTORY (EXT4)` option. This will download *.img.gz file. Unzip the file, and flash the image to the microsd card using etcher.
+After adding the additional package, click on REQUEST BUILD (it takes few seconds to get custom build ready). Now, download the firmware by choosing `FACTORY (EXT4)` option. This will download *.img.gz file. Unzip the file, and flash the image to the microsd card using etcher.  
+[🔝](#table-of-contents)
 
 #### Step B:
 Now connect the microSD card(I used the above mentioned card reader as the one which I had wasn't getting detected in Ubuntu) to a Ubuntu machine OR to any machine that is running Ubuntu VM (it's much easier to resize the EXT4 storage on linux systems).  
@@ -27,52 +39,63 @@ I have Ubuntu VM on [Virtual Box](https://www.virtualbox.org/){:target="_blank"}
 ```
 sudo virtualbox &
 ```
-This should start the [Virtual Box](https://www.virtualbox.org/){:target="_blank"} on your machine with sudo permission.
+This should start the [Virtual Box](https://www.virtualbox.org/){:target="_blank"} on your machine with sudo permission.  
+[🔝](#table-of-contents)
 
 #### Step C:
 Open terminal and run the below command - `lsblk`. Below is the highlighted entries that is associated with the microsd card.
-![lsblk](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/lsblk.png)
+![lsblk](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/lsblk.png)  
+[🔝](#table-of-contents)
 
 
 #### Step D:
-Now, let's unmount the the `rootfs` partition. This is needed because we are going to resize this partition. Run this command to unmount - `sudo umount /media/ganesh/rootfs`. Enter the password when prompted.
+Now, let's unmount the the `rootfs` partition. This is needed because we are going to resize this partition. Run this command to unmount - `sudo umount /media/ganesh/rootfs`. Enter the password when prompted.  
+[🔝](#table-of-contents)
 
 #### Step E:
 Let's run this command - `sudo fdisk /dev/sdb`. Then at the prompt press `p` then press `d`, then press `2`. This should result in deleting the 2nd partition. So far it should look like below:
-![press keys](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/presskeys.png)
+![press keys](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/presskeys.png)  
+[🔝](#table-of-contents)
 
 
 #### Step F:
 Now at the same prompt, press `n` for new followed by `p` for partition. Now press `2` for choosing 2nd partition. Now enter the sector address where the 2nd partition starts i.e. where 1st partition ends. I have highlighted that address in the below screenshot. In this case it's `147456`, enter that in the prompt. Then at the next prompt don't enter anything as we want to use the entire storage available in the microsd card. It should look like this:
-![press keys 2](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/presskeys2.png)
+![press keys 2](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/presskeys2.png)  
+[🔝](#table-of-contents)
 
 
 #### Step G:
 Now press `n` for no and then `w` for write. This will get us out of the prompt. It should look like this.
-![write](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/write.png)
+![write](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/write.png)  
+[🔝](#table-of-contents)
 
 
 #### Step H:
 Now type the command - `sudo e2fsck -f /dev/sdb2`. This is for clean up activity. Now press `y` to remove padding. It should look like this.
-![write](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/cleanup.png)
+![write](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/cleanup.png)  
+[🔝](#table-of-contents)
 
 #### Step I:
 Now run the command to resize - `sudo resize2fs /dev/sdb2`. The resize is complete.
-![resize](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/resize.png)
+![resize](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/resize.png)  
+[🔝](#table-of-contents)
 
 
 #### Step J:
-Now run this command to unmount the microsd card - `sudo umount /dev/sdb1`. Remove the microsd card from the laptop and insert the microsd card in Raspberry Pi, connect the external LAN dongle to USB3 port and power it ON. 
+Now run this command to unmount the microsd card - `sudo umount /dev/sdb1`. Remove the microsd card from the laptop and insert the microsd card in Raspberry Pi, connect the external LAN dongle to USB3 port and power it ON.  
+[🔝](#table-of-contents)
 
 
 #### Next Step:  
-Now go back to `Step 4` in [Raspberry Pi As OpenWrt Router](https://gmrock.github.io/2023/03/05/Raspberry-Pi-as-OpenWrt-router.html#:~:text=Step%204:){:target="_blank"} and complete the rest of the steps.
+Now go back to `Step 4` in [Raspberry Pi As OpenWrt Router](https://gmrock.github.io/2023/03/05/Raspberry-Pi-as-OpenWrt-router.html#:~:text=Step%204:){:target="_blank"} and complete the rest of the steps.  
+[🔝](#table-of-contents)
 
 <hr/>
 
 ## REFERENCES:
 
-- This [video](https://www.youtube.com/watch?v=_pBf2hGqXL8){:target="_blank"} was helpful in resizing EXT4 for openwrt.
+- This [video](https://www.youtube.com/watch?v=_pBf2hGqXL8){:target="_blank"} was helpful in resizing EXT4 for openwrt.  
+[🔝](#table-of-contents)
 <br/>
 
 

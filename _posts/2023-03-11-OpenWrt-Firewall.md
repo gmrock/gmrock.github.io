@@ -4,17 +4,28 @@ I have extended the capabilties of my [Raspberry Pi As OpenWrt Router](https://g
 Please refer my previous post on how to configure [Raspberry Pi As OpenWrt Router](https://gmrock.github.io/2023/03/05/Raspberry-Pi-as-OpenWrt-router.html){:target="_blank"}.
 I have listed the hardware (optional, as we already have the entire setup from [Raspberry Pi As OpenWrt Router](https://gmrock.github.io/2023/03/05/Raspberry-Pi-as-OpenWrt-router.html){:target="_blank"}), architecture along with details on how to configure firewall in [openwrt](https://openwrt.org/docs/guide-user/firewall/firewall_configuration){:target="_blank"}.
 
+<hr/>
 
+## TABLE OF CONTENTS:
+1. [Hardware](#hardware)
+2. [Architecture](#architecture)
+3. [Steps](#steps)
+4. [Glossary](#glossary)
+5. [References](#references)
+
+<hr/>
 
 ## HARDWARE:
 - Access point (I'm using [GL-iNET Mango travel router](https://www.amazon.com/GL-iNET-GL-MT300N-V2-Repeater-300Mbps-Performance/dp/B073TSK26W){:target="_blank"} with router disabled)
 - Cat 6 ethernet cables (cat5 can give up to maximum of 100Mbps)
-- [PLC (power line communication)](https://www.amazon.com/TP-Link-AV600-Powerline-Ethernet-Adapter/dp/B00AWRUICG/) x 2 - Optional
+- [PLC (power line communication)](https://www.amazon.com/TP-Link-AV600-Powerline-Ethernet-Adapter/dp/B00AWRUICG/) x 2 - Optional  
+[🔝](#table-of-contents)
 
 <hr/>
 
 ## ARCHITECTURE:
-![Architecture](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/zoned_network.drawio.png)
+![Architecture](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/zoned_network.drawio.png)  
+[🔝](#table-of-contents)
 
 <hr/>
 
@@ -29,29 +40,36 @@ LAN1 (eth0) has DHCP enabled in openwrt interface and the static IP address is 1
 LAN2 (eth2) has DHCP enabled in openwrt interface and the static IP address is 10.10.0.1
 
 #### Step 1:
-I will be using `Access Point 1` for devices such as laptops, mobile, tablets. `Access Point 2` will be for IOT devices such as cameras, smart speaker, home automation setup (checkout my [Home Automation](https://gmrock.github.io/2022/12/29/Home-Automation.html){:target="_blank"} post).
+I will be using `Access Point 1` for devices such as laptops, mobile, tablets. `Access Point 2` will be for IOT devices such as cameras, smart speaker, home automation setup (checkout my [Home Automation](https://gmrock.github.io/2022/12/29/Home-Automation.html){:target="_blank"} post).  
+[🔝](#table-of-contents)
 
 #### Step 2:
-For `Access Point 2`, I'm using [GL-iNET Mango travel router](https://www.amazon.com/GL-iNET-GL-MT300N-V2-Repeater-300Mbps-Performance/dp/B073TSK26W){:target="_blank"} because of it's form factor. After connecting this router to LAN 2 (eth2) on the Raspberry Pi openwrt router, check the openwrt page to note the IP address that is assigned to this router. Enter the IP address in the browser and login to the [GL-iNET Mango travel router](https://www.amazon.com/GL-iNET-GL-MT300N-V2-Repeater-300Mbps-Performance/dp/B073TSK26W){:target="_blank"}'s admin page (username and password will be on the back). 
+For `Access Point 2`, I'm using [GL-iNET Mango travel router](https://www.amazon.com/GL-iNET-GL-MT300N-V2-Repeater-300Mbps-Performance/dp/B073TSK26W){:target="_blank"} because of it's form factor. After connecting this router to LAN 2 (eth2) on the Raspberry Pi openwrt router, check the openwrt page to note the IP address that is assigned to this router. Enter the IP address in the browser and login to the [GL-iNET Mango travel router](https://www.amazon.com/GL-iNET-GL-MT300N-V2-Repeater-300Mbps-Performance/dp/B073TSK26W){:target="_blank"}'s admin page (username and password will be on the back).  
+[🔝](#table-of-contents)
 
 #### Step 3:
 Enable the access point mode in [GL-iNET Mango travel router](https://www.amazon.com/GL-iNET-GL-MT300N-V2-Repeater-300Mbps-Performance/dp/B073TSK26W){:target="_blank"}. By default, the router mode is enabled. If you leave it in router mode, it will cause the Double NAT scenarion. Also, set the ssid name which you want to publish for this access point. Now any device that connects via this access  point (wired or wireless) will be assigned an IP address 10.10.0.x.
-![access point mode](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/firewall_step3.png)
+![access point mode](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/firewall_step3.png)  
+[🔝](#table-of-contents)
 
 #### Step 4:
-I wanted to have wired connection to my home automation setup (running on Raspberry Pi). However it's not near the router. So I have made use of [PLC](https://en.wikipedia.org/wiki/Power-line_communication){:target="_blank"}. Once you pair (will need a minimum of 2 - transmitter and receiver) the PLC (won't be covering it here, it's straight forward and should be clear in the documentation that comes with the product), I have connected an ethernet cable from `Access Point 2` to one of the PLCs which is close to it. The other PLC is plugged close to the home automation setup and an ethernet cable is connected to it.
+I wanted to have wired connection to my home automation setup (running on Raspberry Pi). However it's not near the router. So I have made use of [PLC](https://en.wikipedia.org/wiki/Power-line_communication){:target="_blank"}. Once you pair (will need a minimum of 2 - transmitter and receiver) the PLC (won't be covering it here, it's straight forward and should be clear in the documentation that comes with the product), I have connected an ethernet cable from `Access Point 2` to one of the PLCs which is close to it. The other PLC is plugged close to the home automation setup and an ethernet cable is connected to it.  
+[🔝](#table-of-contents)
 
 #### Step 5:
 Login to openwrt admin page and navigate to `Network` > `Firewall`. The default setup should look like this.
-![firewall page](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/firewall_step5.png)
+![firewall page](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/firewall_step5.png)  
+[🔝](#table-of-contents)
 
 #### Step 6:
 Click on `Add` to an add new Firewall zone. Enter the name as `IOT` (you can name anything). For `Covered networks` choose `LAN2` (because we want this `IOT` zone to be tied to all devices connecting on `LAN2` interface - that was defined in [Raspberry Pi As OpenWrt Router](https://gmrock.github.io/2023/03/05/Raspberry-Pi-as-OpenWrt-router.html){:target="_blank"} post). For `Allow Forward to destination zones:` choose `wan` (because I want the IOT devices to be able to access wan i.e. internet). Leave other settings as-is, we will revisit later and change them. Save the zone. 
-![Adding zone](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/firewall_step6.png)
+![Adding zone](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/firewall_step6.png)  
+[🔝](#table-of-contents)
 
 #### Step 7:
 After saving, the firewall zone should look like this:
-![zones](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/firewall_step7.png)
+![zones](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/firewall_step7.png)  
+[🔝](#table-of-contents)
 
 
 #### Step 8:
@@ -64,7 +82,8 @@ Let's take another example, second row from both `A` and `B` columns - it says d
 Let's take one more example, third row from both `A` and `B` columns - it says devices that are tied to zone `IOT` (column `A`) will be forwarding traffic to `wan` (column `B`).  
 `wan` zone is tied to our eth1 which is connected to the internet (via modem). If you didn't want `IOT` zone to reach out to internet, you will remove `wan` from column `B` third row (i.e. from `Allow Forward to destination zones:` which was set in Step6).  
 Now we know, how to make sense of columns `A` and `B`.
-![zone explain](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/firewall_step8.png)
+![zone explain](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/firewall_step8.png)  
+[🔝](#table-of-contents)
 
 #### Step 9:
 Now let's focus on columns `C`, `D` and `E`. These 3 columns are to be read with respect to the router (i.e. the device on which openwrt is running - Raspberry Pi in my case).  
@@ -91,7 +110,8 @@ Most of the activities will need the traffic to pass through (or go-out-of) the 
 **What does it mean when we said:**
 >_openwrt router will `accept`/allow **forwarding** connections (column `E`) from devices that are tied to zone `lan` (column `A`)_:
 
-Forward in column `E` is for forwarding traffic between different networks in the same zones (not very common).
+Forward in column `E` is for forwarding traffic between different networks in the same zones (not very common).  
+[🔝](#table-of-contents)
 
 #### Step 10:
 Now we have setup firewall zones and understand how to read them.  
@@ -102,7 +122,8 @@ My requirement is:
 For 1st requirement, click `Edit` in the `lan` zone row and **add** `IOT` in the `Allow Forward to destination zones:` field. Save it.
 ![first requirement](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/firewall_step10.png)
 It should look like this:
-![first requirement complete](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/firewall_step10a.png)
+![first requirement complete](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/firewall_step10a.png)  
+[🔝](#table-of-contents)
 
 #### Step 11:
 The last requirement is:
@@ -136,7 +157,8 @@ The `Traffic Rules` page should look like this now:
 Done!
 
 You can verify if the interface and firewall zone is associated correctly by going to `Network` > `Inteface` page and edit any of the interfaces and see the `Firewall Settings` it should show which zone the interface is tied to.
-![interface to firewallzone](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/firewall_step11d.png)
+![interface to firewallzone](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/firewall_step11d.png)  
+[🔝](#table-of-contents)
 
 <hr/>
 ## GLOSSARY:
@@ -147,12 +169,14 @@ You can verify if the interface and firewall zone is associated correctly by goi
 "drop", on the other hand, means that the firewall simply dropped the network traffic without sending any response back to the sender. The sender will not know if their request was rejected or the host is not available. This is better in-terms of security.
 
 Updated my setup to `drop` instead of `reject`:
-![reject_drop](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/firewall_drop_reject.png)
+![reject_drop](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/firewall_drop_reject.png)  
+[🔝](#table-of-contents)
 <hr/>
 
 ## REFERENCES:
 
-- This [video](https://www.youtube.com/watch?v=UvniZs8q3eU){:target="_blank"} was helpful in setting up firewall on openwrt.
+- This [video](https://www.youtube.com/watch?v=UvniZs8q3eU){:target="_blank"} was helpful in setting up firewall on openwrt.  
+[🔝](#table-of-contents)
 <br/>
 
 

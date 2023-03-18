@@ -44,7 +44,7 @@ I have listed the hardware, software and my current setup along with details on 
 ## STEPS:
 
 #### Step 1:
-Navigate to [openwrt firmware selector page](https://firmware-selector.openwrt.org/){:target="_blank"} and search for `Raspberry Pi`. Choose the model which you will be using. 
+Navigate to [openwrt firmware selector page](https://firmware-selector.openwrt.org/){:target="_blank"} and search for `Raspberry Pi`. Choose the model which you will be using.  
 [🔝](#table-of-contents)
 
 #### Step 2:
