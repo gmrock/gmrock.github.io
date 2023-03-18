@@ -13,8 +13,8 @@ I have listed the hardware, software and my current setup along with details on 
 3. [Architecture](#architecture)
 4. [Steps](#steps)
 5. [Other useful packages](#other-useful-packages)
-6. [Issue(resolved) with my steup](#issue(resolved)-with-my-steup)
-7. [Setup upgrade(additional LAN port)](#setup-upgrade(additional-lan-port))
+6. [Issue(resolved) with my steup](#issueresolved-with-my-steup)
+7. [Setup upgrade(additional LAN port)](#setup-upgradeadditional-lan-port)
 8. [Glossary](#glossary)
 9. [References](#references)
 
@@ -26,19 +26,19 @@ I have listed the hardware, software and my current setup along with details on 
 - [MicroSD card](){:targe="_blank"}
 - Existing modem-router combination (or just modem)
 - Access point (any) - only if you don't want to use the raspberry pi's onboard wifi (which is not powerful enough to act like access point)
-- Cat 6 ethernet cables (cat5 can give up to maximum of 100Mbps)
-[:arrow_up:Top](#table-of-contents)
+- Cat 6 ethernet cables (cat5 can give up to maximum of 100Mbps)  
+[:arrow_up:](#table-of-contents)
 <hr/>
 
 ## SOFTWARE:
 - [openwrt](https://firmware-selector.openwrt.org/){:target="_blank"}
-- [etcher](https://etcher.download){:target="_blank"} - any software which can flash storage with an image
-[:arrow_up:Top](#table-of-contents)
+- [etcher](https://etcher.download){:target="_blank"} - any software which can flash storage with an image  
+[:arrow_up:](#table-of-contents)
 <hr/>
 
 ## ARCHITECTURE:
-![Architecture](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/network.drawio.png)
-[:arrow_up:Top](#table-of-contents)
+![Architecture](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/network.drawio.png)  
+[:arrow_up:](#table-of-contents)
 <hr/>
 
 ## STEPS:
@@ -308,7 +308,7 @@ After the router is setup, make sure you are taking a backup (especially before 
 [:arrow_up:Top](#table-of-contents)
 <hr/>
 
-## OTHER USEFUL PACKAGES :
+## OTHER USEFUL PACKAGES:
 
 - [Adblock](https://openwrt.org/docs/guide-user/services/ad-blocking){:target="_blank"} - this is used for blocking ads. I was using pihole for a long time and recently switched to adblock which can be bundled with openwrt. You will need to enable reporting after installing the package to view reports (you will see the options after adblock is installed on the UI). Will need to install this package along with enabling reporting - `tcpdump` or `tcpdump-mini`.
 - [SQM QOS](https://openwrt.org/docs/guide-user/network/traffic-shaping/sqm){:target="_blank"} - this is used for prioritzing traffic and help reduce bufferbloat. The package is `luci-app-sqm` and check [this](https://openwrt.org/docs/guide-user/network/traffic-shaping/sqm#configuring_sqm){:target="_blank"} for enabling the service and configuring. This shows up under `Network > SQM QoS`.
@@ -316,10 +316,10 @@ After the router is setup, make sure you are taking a backup (especially before 
 - [Attended Sysupgrade](https://openwrt.org/docs/guide-user/installation/attended.sysupgrade){:target="_blank"} - The Attended SysUpgrade (ASU) facility allows an OpenWrt device to update to new firmware while preserving the packages and settings. This is similar to OTA upgrade. We don't need to download and doing anything manual when upgrading firmware. Search for package named `luci-app-attendedsysupgrade`.
 
 For network stability, would encourage installing [SQM QOS](https://openwrt.org/docs/guide-user/network/traffic-shaping/sqm){:target="_blank"} and [irqbalance](https://github.com/Irqbalance/irqbalance){:target="_blank"}.
-[:arrow_up:Top](#table-of-contents)
+[:arrow_up:](#table-of-contents)
 <hr/>
 
-## ISSUE(resolved) WITH MY SETUP :
+## ISSUE(resolved) WITH MY SETUP:
 Initially I had not disabled the router feature on my modem-router combination. This was causing double NAT. There were 2 routers on my network in series. 1st router was in modem-router combination and 2nd router was the Raspberry Pi running openwrt. In my Netgear modem-router (netgear C6250) there is an option to disable router mode. I disabled the router mode. This way I only have 1 router on my network and it's not a double NAT scenario anymore.
 
 The router mode, is also called bridge mode in some devices. The goal is to disable router functionality in the modem. The architecture (cable connection) all remains the same as before. On the modem-router combination, as soon as the router mode was turned OFF, I lost access to the modem-router's admin page. The only way to get it back is to factory reset the modem-router.
@@ -332,7 +332,7 @@ If you don't want to call ISP to change the MAC address. You can clone the modem
 [:arrow_up:Top](#table-of-contents)
 <hr/>
 
-## SETUP UPGRADE(additional LAN port) :
+## SETUP UPGRADE(additional LAN port):
 With the above setup (Raspbery Pi acting as router) all the ethernet ports on the Raspbery Pi are used up.
 - External USB 3 to Ethernet port: configured as WAN (eth1)
 - On-board ethernet port: configured as LAN (eth0)
