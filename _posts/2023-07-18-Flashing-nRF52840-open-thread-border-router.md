@@ -3,9 +3,9 @@ I have compiled the details for flashing [nRF52840](https://www.mouser.com/Produ
 
 ## TABLE OF CONTENTS:
 1. [Steps involved](#steps-involved)
-2. [Flashing thread firmware](#A:-flashing-thread-firmware)
-3. [Installing otbr](#B:-installing-otbr)
-4. [Combining HA and otbr thread network](#C:-combining-ha-and-otbr-thread-network)
+2. [Flashing thread firmware](#flashing-thread-firmware)
+3. [Installing otbr](#installing-otbr)
+4. [Combining HA and otbr thread network](#combining-ha-and-otbr-thread-network)
 5. [References](#references)
 
 ### Steps involved:
@@ -13,8 +13,9 @@ I have compiled the details for flashing [nRF52840](https://www.mouser.com/Produ
 - A. Flashing [nRF52840](https://www.mouser.com/ProductDetail/Nordic-Semiconductor/nRF52840-Dongle?qs=gTYE2QTfZfTbdrOaMHWEZg%3D%3D&countryCode=US&currencyCode=USD){:target="_blank"} thread firmware
 - B. Installing [otbr](https://openthread.io/guides/border-router/raspberry-pi) on raspberry pi (which will use nRF52840 dongle for thread).
 - C. Adding the [otbr](https://openthread.io/guides/border-router/raspberry-pi) on raspberry pi (which will use nRF52840 dongle for thread) to the HomeAssistant's thread network (this way we will have more thread border routers (tbr) on the same network which will increase the reliability of the network)
+
 <br/>
-### A: Flashing thread firmware
+### Flashing thread firmware
 
 #### Step 1:
 Get the raspberry pi setup (use only 32bit version of raspbian OS). Login to raspberry pi instance. Don't connect the nRF52840 dongle to raspberry pi (it will happen in B)  
@@ -46,7 +47,7 @@ Build OpenThread for the nRF52840 Dongle:
 ```
  $ script/build nrf52840 USB_trans -DOT_BOOTLOADER=USB -DOT_THREAD_VERSION=1.2
 ```
-This creates an RCP image at build/bin/ot-rcp.
+This creates an RCP image at build/bin/ot-rcp.  
 [🔝](#table-of-contents)
 
 #### Step 6:
@@ -90,8 +91,8 @@ Now disconnect the USB dongle and plug it in to the Raspberry pi (which we are p
 [🔝](#table-of-contents)
 
 <br/>
-### B: Installing otbr
-Now we will, download and compile the otbr software to run on the raspberry pi.
+### Installing otbr
+Now we will, download and compile the otbr software on raspberry pi.
 
 #### Step 1:
 Clone the OTBR repository:
@@ -149,8 +150,8 @@ thread interface name - wpan0
 [🔝](#table-of-contents)
 
 #### Step 6:
-Restart the raspberry pi
-
+Restart the raspberry pi  
+[🔝](#table-of-contents)
 
 #### Step 7:
 Check if the otbr is up:
@@ -216,7 +217,7 @@ Now the otbr thread network is up and running.
 [🔝](#table-of-contents)
 
 <br/>
-### C: Combining HA and otbr thread network
+### Combining HA and otbr thread network
 
 #### Step 1:
 Open HomeAssistant and navigate to
