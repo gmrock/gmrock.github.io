@@ -64,7 +64,7 @@ Now copy over the .hex file i.e. ot-rcp.hex to your laptop on which you will ins
 
 #### Step 8:
 After installing [nRF Connect for Desktop](https://www.nordicsemi.com/Products/Development-tools/nRF-Connect-for-Desktop/Download#infotabs){:target="_blank"}. Open the application and install `Programmer` (the first option on the list) tool.
-![install_programmer](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/52D26826-0C80-4EA5-98C3-D78BD44C0809.jpeg)  
+![install_programmer](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/install_programmer.png)  
 [🔝](#steps-involved)
 
 #### Step 9:
@@ -84,7 +84,7 @@ Select the device by clicking on `SELECT DEVICE`. The device will be the usb don
 
 #### Step 12:
 Click on `Write` and flash the hex file to the usb dongle. It shouldn't take more than 1-2mins. Once it's flashed the red blinking light on the dongle should stop blinking.
-![write](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/write.png)  
+![write_dongle](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/write_dongle.png)  
 [🔝](#steps-involved)
 
 #### Step 13:
