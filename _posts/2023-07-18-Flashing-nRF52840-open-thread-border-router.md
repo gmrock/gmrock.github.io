@@ -13,7 +13,7 @@ I have compiled the details for flashing [nRF52840](https://www.mouser.com/Produ
 - A. Flashing [nRF52840](https://www.mouser.com/ProductDetail/Nordic-Semiconductor/nRF52840-Dongle?qs=gTYE2QTfZfTbdrOaMHWEZg%3D%3D&countryCode=US&currencyCode=USD){:target="_blank"} thread firmware
 - B. Installing [otbr](https://openthread.io/guides/border-router/raspberry-pi) on raspberry pi (which will use nRF52840 dongle for thread).
 - C. Adding the [otbr](https://openthread.io/guides/border-router/raspberry-pi) on raspberry pi (which will use nRF52840 dongle for thread) to the HomeAssistant's thread network (this way we will have more thread border routers (tbr) on the same network which will increase the reliability of the network)
-
+<hr/>
 <br/>
 ### Flashing thread firmware
 
@@ -89,7 +89,7 @@ Click on `Write` and flash the hex file to the usb dongle. It shouldn't take mor
 #### Step 13:
 Now disconnect the USB dongle and plug it in to the Raspberry pi (which we are planning on using as otbr).  
 [🔝](#table-of-contents)
-
+<hr/>
 <br/>
 ### Installing otbr
 Now we will, download and compile the otbr software on raspberry pi.
@@ -215,7 +215,7 @@ sudo ot-ctl state.
 ```
 Now the otbr thread network is up and running.  
 [🔝](#table-of-contents)
-
+<hr/>
 <br/>
 ### Combining HA and otbr thread network
 
