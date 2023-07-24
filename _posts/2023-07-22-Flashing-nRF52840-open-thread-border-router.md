@@ -264,7 +264,7 @@ Done
 gmagal@rpiutil:~ $ sudo ot-ctl dataset extpanid a70619e27f2cd65f
 Done
 ```
-
+Source for these commands - [ot-ctl commands](https://openthread.io/guides/border-router/external-commissioning/prepare){:target="_blank"}
 
 ![otbr_thread_network](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/otbr_thread_network.png)  
 [🔝](#table-of-contents)
