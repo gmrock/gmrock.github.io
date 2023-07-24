@@ -238,6 +238,34 @@ http://<raspberry_pi_ip_address>:80
 
 #### Step 3:
 Now navigate to `Form` on the left panel and fill in the details from HA's network - network name, channel, pan id, extended pan id here and `form`. Now the otbr running on raspberry pi has joined the HA's thread network.
+
+This can also be done using, command line (had to use this with raspbian OS 64bit as web component wasn't getting installed). Follow the below steps:
+
+- Network name:
+```
+gmagal@rpiutil:~ $ sudo ot-ctl dataset networkname home-assistant
+Done
+```
+
+- Channel:
+```
+gmagal@rpiutil:~ $ sudo ot-ctl dataset channel 15
+Done
+```
+
+- Pan id:
+```
+gmagal@rpiutil:~ $ sudo ot-ctl dataset panid 0x19f5
+Done
+```
+
+- Extended Pan id:
+```
+gmagal@rpiutil:~ $ sudo ot-ctl dataset extpanid a70619e27f2cd65f
+Done
+```
+
+
 ![otbr_thread_network](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/otbr_thread_network.png)  
 [🔝](#table-of-contents)
 
