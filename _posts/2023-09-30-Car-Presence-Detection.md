@@ -65,8 +65,7 @@ I'm using Orbi Mesh network at my home and have seen this behavior where randonl
 ![installation](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/car_presencescreen_capture_1.png)  
 I have used an empty cardboard box(green color above) to mount the ultrasonic sensor along with the microcontroller which runs the application code.  
 
-![internal](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/car_presence_inside_2.jpg)
-<img src="https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/car_presence_inside_2.jpg" alt="internal" style="width:200px;"/>
+<img src="https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/car_presence_inside_2.jpg" alt="internal" style="width:400px;"/>
 This is the inside of the cardboad box, it has the microcontroller and the ultrasonic sensor (hcsr04). The reason there are more wires is because, I have one more hcsro4 sensor that is also connected to this microcontroller. So I'm tracking the presence of 2 cars using 2 hcsr04 sensors and 1 esp32 (microcontroller).  
 [🔝](#table-of-contents)
 <br/>
