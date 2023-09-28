@@ -1,7 +1,7 @@
-In this post, I'll be sharing the project which I developed to detect if the parking spot(garage) is occupied using ultrasonic sensor. The [Home Automation](https://gmrock.github.io/2022/12/29/Home-Automation.html){:target="_blank"} project that I have developed is in java and running on [Raspberry pi](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/){:target="_blank"}. However, for this project I'm using [ESP32](https://en.wikipedia.org/wiki/ESP32){:target="_blank"} microcontroller. For developing this application I had few options (Java was not an option on microcontrollers for various reasons - memory constraints, large JVM foot print etc):
+In this post, I'll be sharing the project which I developed to detect if the parking spot(garage) is occupied using ultrasonic sensor. The [Home Automation](https://gmrock.github.io/2022/12/29/Home-Automation.html){:target="_blank"} project that I have developed is in java and running on [Raspberry pi](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/){:target="_blank"}. However, for this project I'm using [ESP32](https://en.wikipedia.org/wiki/ESP32){:target="_blank"} microcontroller. For developing this application, I had few options (Java was not an option on microcontrollers for various reasons - memory constraints, large JVM foot print etc.):
 - [ESPHome](https://esphome.io/){:target="_blank"} which generates c++ compiled code based on yaml configuration file
 - [micropython](https://micropython.org/){:target="_blank"}
-- [Arduino Sketch](https://www.arduino.cc/en/software){:target="_blank"} (which is bascially c++) 
+- [Arduino Sketch](https://www.arduino.cc/en/software){:target="_blank"} (which is basically c++) 
 
 I decided to go with [Arduino Sketch](https://www.arduino.cc/en/software){:target="_blank"} as that would give me the freedom to develop based on my requirements (unlike yaml configuration files). That also meant, I would get to dust off my c++ coding skills ;)
 
@@ -55,7 +55,7 @@ I'm using [home assistant](https://www.home-assistant.io/){:target="_blank"} to 
 For creating encrypted secure connection I had to create the Wifi object using [WiFiClientSecure](https://github.com/espressif/arduino-esp32/tree/master/libraries/WiFiClientSecure){:target="_blank"} and pass the certificate. Without this the broker was rejecting the connection.
 
 2. **Randomly stopped receiving metric from sensor/microcontroller:** Randomly stopped getting metrics about the distance between sensor and car. Since memory and processing is very limited on microcontrollers, I didn't add any logging. However, later I figured a way to log to [rsyslog](https://www.rsyslog.com/){:target="_blank"} server (will be publishing more details on my setup which makes use of rsyslog and grafana loki). With the help of logging, I was able to fing out that the issue was with the microcontroller/host unable to reach (even couldn't ping) the locally hosted MQTT broker.
-I'm using Netgear Orbi Mesh network(APs) at my home and have seen this behavior where randonly devices on the same home network can no longer ping each other. However, they are still up and running and can ping hosts on the internet. This is the reason I moved to cloud based MQTT broker.  
+I'm using Netgear Orbi Mesh network (Access Points) at my home and have seen this behavior where randonly devices on the same home network can no longer ping each other. However, they are still up and running and can ping hosts on the internet. This is the reason I moved to cloud based MQTT broker.  
 [🔝](#table-of-contents)
 
 <hr/>
@@ -63,13 +63,14 @@ I'm using Netgear Orbi Mesh network(APs) at my home and have seen this behavior 
 #### SCREEN CAPTURES:  
 
 ![installation](https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/car_presencescreen_capture_1.png)  
-I have used an empty cardboard box(green color above) to mount the ultrasonic sensor along with the microcontroller which runs the application code.  
+I have used an empty cardboard box (green color above) to mount the ultrasonic sensor along with the microcontroller which runs the application code.  
 
 <img src="https://raw.githubusercontent.com/gmrock/gmrock.github.io/main/media/car_presence_inside_2.jpg" alt="internal" style="width:400px;"/>  
 
-This is the inside of the cardboad box, it has the microcontroller and the ultrasonic sensor (hcsr04). The reason there are more wires is because, I have one more hcsro4 sensor that is also connected to this microcontroller. So I'm tracking the presence of 2 cars using 2 hcsr04 sensors and 1 esp32 (microcontroller).  
+This is the inside of the cardboard box, it has the microcontroller and the ultrasonic sensor (hcsr04). The reason there are more wires is because, I have one more hcsro4 sensor that is also connected to this microcontroller. So, I'm tracking the presence of 2 cars using 2 hcsr04 sensors and 1 esp32 (microcontroller).  
 [🔝](#table-of-contents)
-<br/>
+<br/>  
+I have been using this set up for few weeks now and used in some home assistant automations. Feel free to reach out to me if you have any questions or comments.  
 
 
 <script src="https://utteranc.es/client.js" repo="gmrock/gmrock.github.io" issue-term="pathname" label="Comments" theme="github-light" crossorigin="anonymous" async> </script> 
