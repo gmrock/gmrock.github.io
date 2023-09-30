@@ -35,7 +35,7 @@ I decided to go with [Arduino Sketch](https://www.arduino.cc/en/software){:targe
         - [PubSubClient](https://www.arduino.cc/reference/en/libraries/pubsubclient/){:target="_blank"}  
         - [WiFiClientSecure](https://github.com/espressif/arduino-esp32/tree/master/libraries/WiFiClientSecure){:target="_blank"}  
         - [Syslog](https://github.com/arcao/Syslog){:target="_blank"}
-- [HiveMQ Cloud](https://console.hivemq.cloud/){:target="_blank"}
+- [HiveMQ Cloud](https://console.hivemq.cloud/){:target="_blank"}  
 [🔝](#table-of-contents)
 
 <hr/>
