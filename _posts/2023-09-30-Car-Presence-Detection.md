@@ -3,9 +3,9 @@ In this post, I'll be sharing the project which I developed to detect if the par
 The [Home Automation](https://gmrock.github.io/2022/12/29/Home-Automation.html){:target="_blank"} project that I have developed is in java and running on [Raspberry pi](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/){:target="_blank"}. However, for this project I'm using [ESP32](https://en.wikipedia.org/wiki/ESP32){:target="_blank"} microcontroller. For developing this application, I had few options (Java is not an option on microcontrollers for various reasons - memory constraints, large JVM foot print etc.):
 - [ESPHome](https://esphome.io/){:target="_blank"} which generates c++ compiled code based on yaml configuration file
 - [micropython](https://micropython.org/){:target="_blank"}
-- [Arduino Sketch](https://www.arduino.cc/en/software){:target="_blank"} (which is basically c++) 
+- [Arduino/C++](https://platformio.org/){:target="_blank"} (which is basically c++) 
 
-I decided to go with [Arduino Sketch](https://www.arduino.cc/en/software){:target="_blank"} as that would give me the freedom to develop based on my requirements (unlike yaml configuration files). That also meant, I would get to dust off my c++ coding skills ;)
+I decided to go with [Arduino/C++](https://platformio.org/){:target="_blank"} as that would give me the freedom to develop based on my requirements (unlike yaml configuration files). That also meant, I would get to dust off my c++ coding skills ;)
 
 <hr/>
 
@@ -30,7 +30,7 @@ I decided to go with [Arduino Sketch](https://www.arduino.cc/en/software){:targe
 <hr/>
 
 #### SOFTWARE:
-- [Arduino Sketch IDE](https://www.arduino.cc/en/software){:target="_blank"}  
+- [PlatformIO](https://platformio.org/){:target="_blank"}  
      - Libraries used in the project:  
         - [PubSubClient](https://www.arduino.cc/reference/en/libraries/pubsubclient/){:target="_blank"}  
         - [WiFiClientSecure](https://github.com/espressif/arduino-esp32/tree/master/libraries/WiFiClientSecure){:target="_blank"}  
