@@ -26,7 +26,7 @@ Microcontroller is bascially the IoT device which is running the application whi
 <hr/>  
 
 #### RSYSLOG:  
-[Rsyslog](https://www.rsyslog.com/){:target="_blank"} is open-source software which is used processing log messages. It's a centralized log management software to which applications are write/pipe logs to. I installed rsyslog on a [Raspberry Pi](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/){:target="_blank"} that is running locally on my home network.
+[Rsyslog](https://www.rsyslog.com/){:target="_blank"} is an open-source software which is used for processing logs. Applications can redirect logs to Rsyslog which is a centralized log management software. I installed rsyslog on a [Raspberry Pi](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/){:target="_blank"} that is running locally on my home network.
 
 #### Step 1:  
 Run the below command on the host where you want to install rsyslog:
