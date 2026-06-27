@@ -1,5 +1,3 @@
-# Delivery Truck Detector
-
 Like many neighborhoods, ours has experienced an increase in mail and package theft over the last few years. That means it's important to collect mail/package soon after they are delivered. Our neighborhood uses clustered community mailboxes managed by USPS. Since these mailboxes belong to USPS, residents aren't allowed to modify them.
 
 If this had been my own mailbox, the solution would have been trivial. A simple reed switch on the mailbox door could detect when the door opened and immediately send a notification.
@@ -75,7 +73,7 @@ YOLO is trained to recognize common object categories. It isn't trained to disti
 
 The USB webcam was only intended as a proof of concept. For a permanent installation I needed an outdoor camera.
 
-After comparing several options, it was time to buy some electronic device 🤩 I chose the [TP-Link Tapo C320WS](https://www.amazon.com/security-cameras-wireless-outdoor-tapo){:target="_blank"} because it supports [RTSP](https://en.wikipedia.org/wiki/Real-Time_Streaming_Protocol){:target="_blank"} streaming.
+After comparing several options, it was time to buy some electronic device 🤩 I chose the [TP-Link Tapo C320WS](https://www.amazon.com/security-cameras-wireless-outdoor-tapo/dp/B09ZZJB6VX/?th=1){:target="_blank"} because it supports [RTSP](https://en.wikipedia.org/wiki/Real-Time_Streaming_Protocol){:target="_blank"} streaming.
 
 That meant the Raspberry Pi could process video directly over the network without relying on cloud APIs. I mounted 🪜 the camera roughly 15 feet above the ground on the exterior of my house.
  Then I copied over the exact same YOLO model and detection script.
