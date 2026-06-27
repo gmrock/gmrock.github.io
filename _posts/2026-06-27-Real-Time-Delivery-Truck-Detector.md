@@ -1,4 +1,4 @@
-Like many neighborhoods, ours has experienced an increase in mail and package theft over the last few years. That means it's important to collect mail/package soon after they are delivered. Our neighborhood uses clustered community mailboxes managed by USPS. Since these mailboxes belong to USPS, residents aren't allowed to modify them.
+Like many urban neighborhoods, ours has experienced an increase in mail and package theft over the last few years. That means it's important to collect mail/package soon after they are delivered. Our neighborhood uses clustered community mailboxes managed by USPS. Since these mailboxes belong to USPS, residents aren't allowed to modify them.
 
 If this had been my own mailbox, the solution would have been trivial. A simple reed switch on the mailbox door could detect when the door opened and immediately send a notification.
 
@@ -282,3 +282,5 @@ Instead of relying on someone in the neighborhood to notice the USPS truck and p
 [🔝](#table-of-contents)
 
 <hr/>
+
+<script src="https://utteranc.es/client.js" repo="gmrock/gmrock.github.io" issue-term="pathname" label="Comments" theme="github-light" crossorigin="anonymous" async> </script> 
